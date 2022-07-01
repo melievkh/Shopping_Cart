@@ -1,19 +1,30 @@
 import React from 'react';
-import Navbar from './containers/Navbar/Navbar'
-import Quyuq from './Pages/Quyuq/Quyuq';
-import Suyuq from './Pages/Suyuq/Suyuq';
-import Salat from './Pages/Salat/Salat';
-import Ichimlik from './Pages/Ichimlik/Ichimlik';
+import Navbar from './containers/Navbar/Navbar';
+import DarkFood from './Pages/darkFood/DarkFood';
+import LiquidFood from './Pages/liquidFood/LiquidFood';
+import Salad from './Pages/Salad/Salad';
+import Drinks from './Pages/drinks/Drinks';
+import { Route, Routes } from 'react-router-dom';
+import { Admin } from './components/Dashboard/Admin';
+
+function Main() {
+  return (
+    <>
+      <Navbar />
+      <LiquidFood />
+      <DarkFood />
+      <Salad />
+      <Drinks />
+    </>
+  );
+}
 
 function App() {
   return (
-    <div>
-      <Navbar />
-      <Suyuq />
-      <Quyuq />
-      <Salat />
-      <Ichimlik />
-    </div>
+    <Routes>
+      <Route path="/" element={<Main />} />
+      <Route path="/admin" element={<Admin />} />
+    </Routes>
   );
 }
 

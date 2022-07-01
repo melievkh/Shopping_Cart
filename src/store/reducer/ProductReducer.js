@@ -1,9 +1,9 @@
 import foodList from '../../components/mock/foodList';
 
-const suyuq = foodList.suyuq;
+const liquidFood = foodList.liquidFood;
 
 const initialState = {
-  suyuq,
+  liquidFood,
   sum: 0,
 };
 
@@ -11,7 +11,7 @@ export const reducer = (state = initialState, action) => {
   switch (action.type) {
     case 'ADD_TO_BASKET':
       return {
-        suyuq: state.suyuq.map((product) => {
+        liquidFood: state.liquidFood.map((product) => {
           if (product.id === action.payload.productId) {
             return {
               ...product,
@@ -25,7 +25,7 @@ export const reducer = (state = initialState, action) => {
       };
     case 'REMOVE_FROM_BASKET':
       return {
-        suyuq: state.suyuq.map((product) => {
+        liquidFood: state.liquidFood.map((product) => {
           if (product.id === action.payload.productId) {
             if (product.amount === 1) {
               return { ...product, amount: 0, added: false };

@@ -7,8 +7,9 @@ const FlexBox = styled.div`
   align-items: ${({alignItems})=> alignItems || 'center'};
   flex-wrap: ${({flexWrap})=> flexWrap};
   gap: ${({gap})=> gap};
-  width: ${({width})=> width};
-  height: ${({height})=> height};
+  background-color: ${({bgColor})=> bgColor};
+  width: ${({wd})=> wd};
+  height: ${({hg})=> hg};
 `;
 
 export default FlexBox;

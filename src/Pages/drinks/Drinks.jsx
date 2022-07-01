@@ -1,14 +1,15 @@
 import React from 'react';
+import Button from '../../components/button/Button';
 import Heading from '../../components/Heading/Heading';
 import foodList from '../../components/mock/foodList';
-import { Card, CardDetails, Wrapper } from '../styles/style';
+import { Card, CardDetails, Wrapper } from '../pages_styles/pageStyle';
 
 const Suyuq = () => {
   return (
-    <Wrapper id="ichimlik"  gap='30px'>
+    <Wrapper id="ichimlik">
       <Heading size="lg">Ichimliklar ro'yhati</Heading>
       <ul>
-        {foodList.ichimlik.map((item) => {
+        {foodList.drinks.map((item) => {
           return (
             <li key={item.id}>
               <Card>
@@ -18,7 +19,7 @@ const Suyuq = () => {
                     {item.name}
                   </Heading>
                   <Heading margin="5px">Narxi: {item.price} so'm</Heading>
-                  <button>Savatga Qo'shish</button>
+                  <Button>Savatga Qo'shish</Button>
                 </CardDetails>
               </Card>
             </li>
