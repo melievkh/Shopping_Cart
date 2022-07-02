@@ -25,11 +25,12 @@ const Register = () => {
     //   alert("Parol noto'g'ri kiritildi!");
     //   return false;
     // }
+    console.log(setDetails);
   };
   return (
     <Wrapper>
       <Box
-        onSubmit={()=> handleSubmit(details)}
+        onSubmit={handleSubmit}
         wd="350px"
         hg="450px"
         justifyContent="space-evenly"
@@ -53,7 +54,9 @@ const Register = () => {
             required
           />
         </FlexBox>
-        <Button wd="80%">Akkount yaratish</Button>
+        <Button type="submit" wd="80%">
+          Akkount yaratish
+        </Button>
         <Heading style={{ fontSize: '12px' }}>
           Akkountgiz allaqachon mavjudmi? <Link to="/login">Kirish</Link>
         </Heading>

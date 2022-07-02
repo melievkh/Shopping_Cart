@@ -37,7 +37,7 @@ const Suyuq = () => {
                     Savatga Qo'shish
                   </Button>
                 ) : (
-                  <FlexBox wd="100%" flexDirection="row" gap="30px">
+                  <FlexBox wd="100%" flexDirection="row" gap="20px" justifyContent='flex-end'>
                     <Button
                       wd="35px"
                       hg="30px"
@@ -53,7 +53,6 @@ const Suyuq = () => {
                     >
                       -
                     </Button>
-                    <p>{sum}</p>
                   </FlexBox>
                 )}
               </CardDetails>

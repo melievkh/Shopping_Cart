@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import colors from '../../assets/color/colors';
 import FlexBox from '../../components/Flexbox/FlexBox';
 
 export const DropdownContent = styled.div`
@@ -11,6 +12,10 @@ export const DropdownContent = styled.div`
   box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
   min-width: 160px;
   z-index: 1;
+  ul{
+    display: flex;
+    flex-direction: column;
+  }
 `;
 
 export const Dropdown = styled.div`
@@ -18,6 +23,7 @@ export const Dropdown = styled.div`
   font-size: 30px;
   margin-left: -50px;
   position: relative;
+  cursor: pointer;
   display: inline-block;
   &:hover ${DropdownContent} {
     display: block;
@@ -29,7 +35,7 @@ export const Name = styled(FlexBox)`
   height: 50%;
   p {
     font-size: 25px;
-    color: red;
+    color: ${colors.white};
   }
   button {
     border: none;

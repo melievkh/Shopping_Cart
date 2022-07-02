@@ -6,6 +6,8 @@ import Salad from './Pages/Salad/Salad';
 import Drinks from './Pages/drinks/Drinks';
 import { Route, Routes } from 'react-router-dom';
 import { Admin } from './components/Dashboard/Admin';
+import Register from './Pages/Register/Register'
+import Login from './Pages/Login/Login';
 
 function Main() {
   return (
@@ -24,6 +26,8 @@ function App() {
     <Routes>
       <Route path="/" element={<Main />} />
       <Route path="/admin" element={<Admin />} />
+      <Route path='/register' element={<Register/>}/>
+      <Route path='/login' element={<Login/>}/>
     </Routes>
   );
 }

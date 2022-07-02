@@ -16,7 +16,7 @@ const Login = () => {
           <FaUserAlt /> Saytga kirish
         </Heading>
         <FlexBox wd="100%" gap="30px">
-          <input type="text" placeholder=" Ism" />
+          <input type="number" placeholder="Phone number" />
           <input type="password" placeholder="Parol" />
         </FlexBox>
         <Button
