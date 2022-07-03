@@ -34,7 +34,7 @@ const foodList = {
     },
     {
       id: 5,
-      name: 'kuksi',
+      name: 'Kuksi',
       price: 27000,
       img: 'https://cdn.delever.uz/delever/dbe3dee9-86f5-43ae-9aa3-ddc33d542cdf',
       amount: 0,

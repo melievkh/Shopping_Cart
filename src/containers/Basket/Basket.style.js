@@ -6,15 +6,22 @@ export const DropdownContent = styled.div`
   width: 300px;
   height: 300px;
   display: none;
+  justify-content: center;
+  align-items: center;
   position: absolute;
   border-radius: 8px;
   background-color: white;
   box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
   min-width: 160px;
   z-index: 1;
-  ul{
+  overflow-x: scroll;
+  &::-webkit-scrollbar {
+    width: 10px;
+  }
+  ul {
     display: flex;
     flex-direction: column;
+    gap: 5px;
   }
 `;
 
@@ -54,4 +61,15 @@ export const ButtonsBox = styled(FlexBox)`
     border: none;
     background-color: inherit;
   }
+`;
+
+export const Cards = styled(FlexBox)`
+  background: rgb(2, 0, 36);
+  background: linear-gradient(
+    90deg,
+    rgba(2, 0, 36, 1) 0%,
+    rgba(85, 110, 143, 1) 100%,
+    rgba(0, 212, 255, 1) 100%
+  );
+  border-radius: 8px;
 `;

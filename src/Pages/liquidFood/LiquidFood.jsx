@@ -13,14 +13,14 @@ const Suyuq = () => {
   const dispatch = useDispatch();
 
   const handleAdd = (productId, price) => {
-    dispatch({ type: 'ADD_TO_BASKET', payload: { productId, price } });
+    dispatch({ type: 'INCREMENT', payload: { productId, price } });
   };
 
-  const handleRemove = (productId, price) => {
-    dispatch({ type: 'REMOVE_FROM_BASKET', payload: { productId, price } });
+  const handleDecrease = (productId, price) => {
+    dispatch({ type: 'DECREMENT', payload: { productId, price } });
   };
   return (
-    <Wrapper id="suyuq">
+    <Wrapper id="liquidFood">
       <Heading size="lg">Suyuq ovqatlar ro'yhati</Heading>
       <ul>
         {products?.map((product) => (
@@ -37,7 +37,12 @@ const Suyuq = () => {
                     Savatga Qo'shish
                   </Button>
                 ) : (
-                  <FlexBox wd="100%" flexDirection="row" gap="20px" justifyContent='flex-end'>
+                  <FlexBox
+                    wd="100%"
+                    flexDirection="row"
+                    gap="20px"
+                    justifyContent="flex-end"
+                  >
                     <Button
                       wd="35px"
                       hg="30px"
@@ -49,7 +54,7 @@ const Suyuq = () => {
                     <Button
                       wd="35px"
                       hg="30px"
-                      onClick={() => handleRemove(product.id, product.price)}
+                      onClick={() => handleDecrease(product.id, product.price)}
                     >
                       -
                     </Button>

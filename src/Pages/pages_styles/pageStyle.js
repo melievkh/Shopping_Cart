@@ -5,7 +5,7 @@ import { media } from '../../assets/media/media';
 export const Wrapper = styled(FlexBox)`
   width: 100%;
   height: auto;
-  margin-top: 50px;
+  margin-top: 100px;
   flex-wrap: wrap;
   flex-direction: column;
   gap: 30px;

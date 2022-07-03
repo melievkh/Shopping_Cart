@@ -9,7 +9,7 @@ const initialState = {
 
 export const reducer = (state = initialState, action) => {
   switch (action.type) {
-    case 'ADD_TO_BASKET':
+    case 'INCREMENT':
       return {
         liquidFood: state.liquidFood.map((product) => {
           if (product.id === action.payload.productId) {
@@ -23,7 +23,7 @@ export const reducer = (state = initialState, action) => {
         }),
         sum: state.sum + action.payload.price,
       };
-    case 'REMOVE_FROM_BASKET':
+    case 'DECREMENT':
       return {
         liquidFood: state.liquidFood.map((product) => {
           if (product.id === action.payload.productId) {
@@ -39,6 +39,20 @@ export const reducer = (state = initialState, action) => {
           return product;
         }),
         sum: state.sum - action.payload.price,
+      };
+    case 'REMOVE_FROM_BASKET':
+      return {
+        liquidFood: state.liquidFood.map((product) => {
+          if (product.id === action.payload.productId) {
+            return {
+              ...product,
+              amount: 0,
+              added: false
+            };
+          }
+          return product;
+        }),
+        // sum: state.sum - action.payload.price,
       };
     default:
       return state;
