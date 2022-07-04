@@ -1,7 +1,6 @@
 import React from 'react';
 import { FiShoppingCart } from 'react-icons/fi';
 import { MdDelete } from 'react-icons/md';
-import FlexBox from '../../components/Flexbox/FlexBox';
 import {
   ButtonsBox,
   Cards,
@@ -13,9 +12,10 @@ import { useSelector, useDispatch } from 'react-redux';
 import Heading from '../../components/Heading/Heading';
 import Button from '../../components/button/Button';
 import colors from '../../assets/color/colors';
+import FlexBox from '../../components/Flexbox/FlexBox';
 
 const Basket = () => {
-  const products = useSelector((state) => state.liquidFood);
+  const products = useSelector((state) => state.products);
   const sum = useSelector((state) => state.sum);
 
   const dispatch = useDispatch();
@@ -37,11 +37,20 @@ const Basket = () => {
         <FiShoppingCart /> Savatcha
       </Heading>
       <DropdownContent>
+        <FlexBox flexDirection="row" justifyContent="space-evenly">
+          <Heading align="end" margin="5px" style={{ fontSize: '18px' }}>
+            {sum} so'm
+          </Heading>
+          <Button wd="140px" hg="30px">
+            Buyurtma berish
+          </Button>
+        </FlexBox>
+
         <ul>
           {products.map((product) => (
-            <li key={product.id}>
+            <li>
               {product.added && (
-                <Cards hg="60px" wd="100%">
+                <Cards hg="60px" wd="100%" key={product.id}>
                   <Name flexDirection="row" justifyContent="space-around">
                     <Heading color={colors.white} style={{ fontSize: '16px' }}>
                       {product.name}
@@ -80,7 +89,6 @@ const Basket = () => {
             </li>
           ))}
         </ul>
-        <Heading color={colors.black} align='end' margin='5px' style={{fontSize: '18px'}}> Umumiy - {sum} so'm</Heading>
       </DropdownContent>
     </Dropdown>
   );

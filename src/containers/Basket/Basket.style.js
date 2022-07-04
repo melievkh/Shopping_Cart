@@ -21,7 +21,11 @@ export const DropdownContent = styled.div`
   ul {
     display: flex;
     flex-direction: column;
+    justify-content: space-around;
     gap: 5px;
+  }
+  li{
+    margin: 0;
   }
 `;
 

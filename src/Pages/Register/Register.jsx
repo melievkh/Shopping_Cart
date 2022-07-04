@@ -16,16 +16,12 @@ const Register = () => {
   };
   const [details, setDetails] = useState(initialState);
 
+  const handleChange = (e) => {
+    setDetails({ ...details, [e.target.name]: e.target.value });
+  };
+
   const handleSubmit = (e) => {
     e.preventDefault();
-    // if (details.phone_number.length < 7) {
-    //   alert("Telefon raqamni to'g'ri kiriting");
-    //   return false;
-    // } else if (details.password !== details.confirm_password) {
-    //   alert("Parol noto'g'ri kiritildi!");
-    //   return false;
-    // }
-    console.log(setDetails);
   };
   return (
     <Wrapper>
@@ -39,24 +35,38 @@ const Register = () => {
           <FiUserPlus /> Ro'yhatdan o'tish
         </Heading>
         <FlexBox wd="100%" gap="30px">
-          <input type="text" placeholder=" Ism" name="name" required />
+          <input
+            type="text"
+            placeholder=" Ism"
+            name="name"
+            onChange={handleChange}
+            required
+          />
           <input
             type="number"
             placeholder="Telefon raqam"
             name="phone_number"
+            onChange={handleChange}
             required
           />
-          <input type="password" placeholder="Parol" name="password" required />
+          <input
+            type="password"
+            placeholder="Parol"
+            name="password"
+            onChange={handleChange}
+            required
+          />
           <input
             type="password"
             placeholder="Parolni qaytaring"
             name="confirm_password"
+            onChange={handleChange}
             required
           />
         </FlexBox>
-        <Button type="submit" wd="80%">
-          Akkount yaratish
-        </Button>
+          <Button type="submit" wd="80%">
+            Akkount yaratish
+          </Button>
         <Heading style={{ fontSize: '12px' }}>
           Akkountgiz allaqachon mavjudmi? <Link to="/login">Kirish</Link>
         </Heading>
