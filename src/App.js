@@ -18,9 +18,9 @@ function Main() {
 function App() {
   return (
     <Routes>
-      <Route path="/" element={<Register />} />
+      <Route path="/" element={<Main />} />
       <Route path="/admin" element={<Admin />} />
-      <Route path="/main" element={<Main />} />
+      <Route path="/register" element={<Register />} />
       <Route path="/login" element={<Login />} />
     </Routes>
   );
