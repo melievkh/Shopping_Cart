@@ -5,15 +5,19 @@ import Heading from '../../components/Heading/Heading';
 import { Box, Wrapper } from './Register.style';
 import { FiUserPlus } from 'react-icons/fi';
 import colors from '../../assets/color/colors';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
+import authApi from '../../api/authApi';
 
 const Register = () => {
+  const navigate = useNavigate();
+
   const initialState = {
-    name: '',
-    phone_number: '',
+    username: '',
+    phoneNumber: '',
     password: '',
-    confirm_password: '',
+    confirmPassword: '',
   };
+
   const [details, setDetails] = useState(initialState);
 
   const handleChange = (e) => {
@@ -22,7 +26,15 @@ const Register = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    authApi
+      .register(details)
+      .then((res) => {
+        alert(res.data.message);
+        navigate('/login');
+      })
+      .catch((err) => alert(err.response.data.message));
   };
+
   return (
     <Wrapper>
       <Box
@@ -37,36 +49,36 @@ const Register = () => {
         <FlexBox wd="100%" gap="30px">
           <input
             type="text"
-            placeholder=" Ism"
-            name="name"
+            placeholder="Foydalanuvchi ismi"
+            name="username"
+            value={details.username}
             onChange={handleChange}
-            required
           />
           <input
             type="number"
             placeholder="Telefon raqam"
-            name="phone_number"
+            name="phoneNumber"
+            value={details.phoneNumber}
             onChange={handleChange}
-            required
           />
           <input
             type="password"
             placeholder="Parol"
             name="password"
+            value={details.password}
             onChange={handleChange}
-            required
           />
           <input
             type="password"
             placeholder="Parolni qaytaring"
-            name="confirm_password"
+            name="confirmPassword"
+            value={details.confirmPassword}
             onChange={handleChange}
-            required
           />
         </FlexBox>
-          <Button type="submit" wd="80%">
-            Akkount yaratish
-          </Button>
+        <Button type="submit" wd="80%">
+          Akkount yaratish
+        </Button>
         <Heading style={{ fontSize: '12px' }}>
           Akkountgiz allaqachon mavjudmi? <Link to="/login">Kirish</Link>
         </Heading>

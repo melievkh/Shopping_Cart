@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { FiShoppingCart } from 'react-icons/fi';
 import { MdDelete } from 'react-icons/md';
 import {
@@ -13,12 +13,28 @@ import Heading from '../../components/Heading/Heading';
 import Button from '../../components/button/Button';
 import colors from '../../assets/color/colors';
 import FlexBox from '../../components/Flexbox/FlexBox';
+import orderApi from '../../api/orderApi';
 
 const Basket = () => {
-  const products = useSelector((state) => state.products);
-  const sum = useSelector((state) => state.sum);
-
   const dispatch = useDispatch();
+
+  const products = useSelector((state) => state.product.products);
+  const sum = useSelector((state) => state.product.sum);
+  const user = useSelector((state) => state.user);
+  const [orders, setOrders] = useState({});
+
+  const selectedOrders = products.filter((product) => product.added === true);
+  const selectedOrdersId = selectedOrders.map((order) => {
+    return { amount: order.amount, productId: order.id };
+  });
+
+  useEffect(() => {
+    setOrders({
+      totalPrice: sum,
+      userId: user._id,
+      products: selectedOrdersId,
+    });
+  }, [sum]);
 
   const handleAdd = (productId, price) => {
     dispatch({ type: 'INCREMENT', payload: { productId, price } });
@@ -31,6 +47,16 @@ const Basket = () => {
   const handleRemove = (productId, price) => {
     dispatch({ type: 'REMOVE_FROM_BASKET', payload: { productId, price } });
   };
+
+  const createOrder = (e) => {
+    e.preventDefault();
+
+    orderApi
+      .createOrder(orders)
+      .then((res) => console.log(res.data))
+      .catch((err) => console.log(err.response.data));
+  };
+
   return (
     <Dropdown>
       <Heading color={colors.white}>
@@ -41,14 +67,14 @@ const Basket = () => {
           <Heading align="end" margin="5px" style={{ fontSize: '18px' }}>
             {sum} so'm
           </Heading>
-          <Button wd="140px" hg="30px">
-            Buyurtma berish
+          <Button wd="140px" hg="30px" onClick={createOrder}>
+            {sum === 0 ? 'Mahsulot tanlang' : 'Buyurtma berish'}
           </Button>
         </FlexBox>
 
         <ul>
           {products.map((product) => (
-            <li>
+            <li key={product.id}>
               {product.added && (
                 <Cards hg="60px" wd="100%" key={product.id}>
                   <Name flexDirection="row" justifyContent="space-around">

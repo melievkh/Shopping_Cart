@@ -1,14 +1,18 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import Heading from '../../components/Heading/Heading';
 import { Card, CardDetails, Wrapper } from '../pages_styles/pageStyle';
 import { useSelector, useDispatch } from 'react-redux';
 import FlexBox from '../../components/Flexbox/FlexBox';
 import Button from '../../components/button/Button';
+import { getAllProducts } from '../../store/actions/productAction';
 
 const Products = () => {
-  const products = useSelector((state) => state.products);
-
   const dispatch = useDispatch();
+  const products = useSelector((state) => state.product.products);
+
+  useEffect(() => {
+    dispatch(getAllProducts());
+  }, []);
 
   const handleAdd = (productId, price) => {
     dispatch({ type: 'INCREMENT', payload: { productId, price } });
@@ -17,13 +21,14 @@ const Products = () => {
   const handleDecrease = (productId, price) => {
     dispatch({ type: 'DECREMENT', payload: { productId, price } });
   };
+
   return (
     <Wrapper>
       <ul>
         {products?.map((product) => (
           <li key={product.id}>
             <Card>
-              <img src={product.img} alt="Loading..." />
+              <img src={product.picture} alt="Loading..." />
               <CardDetails alignItems="flex-start" gap="10px">
                 <Heading size="md" margin="5px">
                   {product.name}
