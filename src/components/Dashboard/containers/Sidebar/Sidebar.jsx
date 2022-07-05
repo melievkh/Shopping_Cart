@@ -7,7 +7,6 @@ import colors from '../../../../assets/color/colors';
 
 const Sidebar = () => {
   const [isOpen, setIsOpen] = useState(false);
-  console.log(isOpen);
 
   return (
     <Wrapper>
