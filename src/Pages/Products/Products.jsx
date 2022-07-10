@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { Card, CardDetails, Wrapper } from './Products.style';
+import { Card, CardDetails, CardMedia, Wrapper } from './Products.style';
 import {
   decrementProductByOne,
   getAllProducts,
@@ -20,65 +20,49 @@ const Products = () => {
 
   return (
     <Wrapper>
-      <ul>
-        {products?.map((product) => (
-          <li key={product.id}>
-            <Card>
-              <img src={product.picture} alt="Loading..." />
-              <CardDetails alignItems="flex-start" gap="10px">
-                <Heading size="md" margin="5px">
-                  {product.name}
-                </Heading>
-                <FlexBox wd='100%' flexDirection="row" justifyContent='space-evenly'>
-                  <Heading size="sm" margin="5px">
-                    {product.price} so'm
-                  </Heading>
-                  {product.amount === 0 ? (
-                    <Button
-                      wd="120px" hg='35px'
-                      onClick={() =>
-                        dispatch(
-                          incrementProductByOne(product.id, product.price)
-                        )
-                      }
-                    >
-                      Qo'shish
-                    </Button>
-                  ) : (
-                    <FlexBox
-                      flexDirection="row"
-                      gap="20px"
-                      justifyContent="flex-end"
-                    >
-                      <Button
-                        wd="35px"
-                        hg="30px"
-                        onClick={() =>
-                          dispatch(
-                            incrementProductByOne(product.id, product.price)
-                          )
-                        }
-                      >
-                        +
-                      </Button>
-                      <p>{product.amount}</p>
-                      <Button
-                        wd="35px"
-                        hg="30px"
-                        onClick={() =>
-                          decrementProductByOne(product.id, product.price)
-                        }
-                      >
-                        -
-                      </Button>
-                    </FlexBox>
-                  )}
-                </FlexBox>
-              </CardDetails>
-            </Card>
-          </li>
-        ))}
-      </ul>
+      {products?.map((product) => (
+        <Card key={product.id}>
+          <CardMedia src={product.picture} alt="Loading..." />
+          <CardDetails>
+            <Heading size="md">{product.name}</Heading>
+
+            <Heading size="sm">{product.price} so'm</Heading>
+            {product.amount === 0 ? (
+              <Button
+                wd="120px"
+                hg="35px"
+                onClick={() =>
+                  dispatch(incrementProductByOne(product.id, product.price))
+                }
+              >
+                Qo'shish
+              </Button>
+            ) : (
+              <FlexBox flexDirection="row" gap="20px" justifyContent="flex-end">
+                <Button
+                  wd="35px"
+                  hg="30px"
+                  onClick={() =>
+                    dispatch(incrementProductByOne(product.id, product.price))
+                  }
+                >
+                  +
+                </Button>
+                <p>{product.amount}</p>
+                <Button
+                  wd="35px"
+                  hg="30px"
+                  onClick={() =>
+                    decrementProductByOne(product.id, product.price)
+                  }
+                >
+                  -
+                </Button>
+              </FlexBox>
+            )}
+          </CardDetails>
+        </Card>
+      ))}
     </Wrapper>
   );
 };

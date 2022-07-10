@@ -9,6 +9,7 @@ import colors from '../../assets/color/colors';
 import FlexBox from '../../components/Flexbox/FlexBox';
 import Button from '../../components/Button/Button';
 import Heading from '../../components/Heading/Heading';
+import { Input } from '../../components/Input/Input';
 
 const Navbar = () => {
   let isLoggedIn = useSelector((state) => state.user.isLoggedIn);
@@ -24,44 +25,41 @@ const Navbar = () => {
   return (
     <Wrapper>
       <Basket />
-      <FlexBox
-        wd="60%"
-        flexDirection="row"
-        gap="30px"
-        justifyContent="flex-end"
-      >
-        <FlexBox wd="330px" hg="30px" flexDirection="row">
-          <input type="search" placeholder="search for foods, drinks..." />
-          <Button
-            wd="30px"
-            hg="30px"
-            bgColor={colors.grey}
-            style={{ color: colors.black, borderRadius: '0 8px 8px 0' }}
-          >
-            <FiSearch />
-          </Button>
-        </FlexBox>
-        {isLoggedIn ? (
-          <Dropdown>
-            <TbUserCircle style={{ color: colors.white, fontSize: '30px' }} />
+      <FlexBox wd="fit-content" flexDirection="row">
+        <Input
+          wd="400px"
+          style={{ borderRadius: '8px 0 0 8px' }}
+          type="search"
+          placeholder="qidirish..."
+        />
+        <Button
+          wd="30px"
+          border="1px solid grey"
+          style={{ borderRadius: '0 8px 8px 0' }}
+        >
+          <FiSearch />
+        </Button>
+      </FlexBox>
+      {isLoggedIn ? (
+        <Dropdown>
+          <FlexBox flexDirection='row' gap='20px'>
+            <TbUserCircle style={{ fontSize: '30px' }} />
             <DropdownContent>
-              <Button hg="35px" onClick={() => logout()}>
-                chiqish
-              </Button>
+              <Button onClick={() => logout()}>chiqish</Button>
             </DropdownContent>
             <Heading color={colors.white}>{username}</Heading>
-          </Dropdown>
-        ) : (
-          <FlexBox flexDirection="row" gap="20px">
-            <Link to="/login" style={{ color: colors.black }}>
-              <FiLogIn /> Kirish
-            </Link>
-            <Link to="/register" style={{ color: colors.black }}>
-              <FiUserPlus /> Ro'yhatdan o'tish
-            </Link>
           </FlexBox>
-        )}
-      </FlexBox>
+        </Dropdown>
+      ) : (
+        <FlexBox flexDirection="row" gap="20px">
+          <Link to="/login" style={{ color: colors.black }}>
+            <FiLogIn /> Kirish
+          </Link>
+          <Link to="/register" style={{ color: colors.black }}>
+            <FiUserPlus /> Ro'yhatdan o'tish
+          </Link>
+        </FlexBox>
+      )}
     </Wrapper>
   );
 };

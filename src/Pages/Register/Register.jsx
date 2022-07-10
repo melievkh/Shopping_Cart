@@ -2,11 +2,12 @@ import React, { useState } from 'react';
 import Button from '../../components/Button/Button';
 import FlexBox from '../../components/Flexbox/FlexBox';
 import Heading from '../../components/Heading/Heading';
-import { Box, Wrapper } from './Register.style';
+import { Form, Wrapper } from './Register.style';
 import { FiUserPlus } from 'react-icons/fi';
 import colors from '../../assets/color/colors';
 import { Link, useNavigate } from 'react-router-dom';
 import authApi from '../../api/authApi';
+import { Input } from '../../components/Input/Input';
 
 const Register = () => {
   const navigate = useNavigate();
@@ -37,52 +38,43 @@ const Register = () => {
 
   return (
     <Wrapper>
-      <Box
-        onSubmit={handleSubmit}
-        wd="350px"
-        hg="450px"
-        justifyContent="space-evenly"
-      >
-        <Heading color={colors.blue}>
+      <Form onSubmit={handleSubmit}>
+        <Heading secondary>
           <FiUserPlus /> Ro'yhatdan o'tish
         </Heading>
-        <FlexBox wd="100%" gap="30px">
-          <input
-            type="text"
-            placeholder="Foydalanuvchi ismi"
-            name="username"
-            value={details.username}
-            onChange={handleChange}
-          />
-          <input
-            type="number"
-            placeholder="Telefon raqam"
-            name="phoneNumber"
-            value={details.phoneNumber}
-            onChange={handleChange}
-          />
-          <input
-            type="password"
-            placeholder="Parol"
-            name="password"
-            value={details.password}
-            onChange={handleChange}
-          />
-          <input
-            type="password"
-            placeholder="Parolni qaytaring"
-            name="confirmPassword"
-            value={details.confirmPassword}
-            onChange={handleChange}
-          />
-        </FlexBox>
-        <Button type="submit" wd="80%">
-          Akkount yaratish
-        </Button>
+        <Input
+          type="text"
+          placeholder="Foydalanuvchi ismi"
+          name="username"
+          value={details.username}
+          onChange={handleChange}
+        />
+        <Input
+          type="number"
+          placeholder="Telefon raqam"
+          name="phoneNumber"
+          value={details.phoneNumber}
+          onChange={handleChange}
+        />
+        <Input
+          type="password"
+          placeholder="Parol"
+          name="password"
+          value={details.password}
+          onChange={handleChange}
+        />
+        <Input
+          type="password"
+          placeholder="Parolni qaytaring"
+          name="confirmPassword"
+          value={details.confirmPassword}
+          onChange={handleChange}
+        />
+        <Button type="submit">Akkount yaratish</Button>
         <Heading style={{ fontSize: '12px' }}>
           Akkountgiz allaqachon mavjudmi? <Link to="/login">Kirish</Link>
         </Heading>
-      </Box>
+      </Form>
     </Wrapper>
   );
 };

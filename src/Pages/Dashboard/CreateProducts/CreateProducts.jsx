@@ -5,6 +5,7 @@ import Heading from '../../../components/Heading/Heading';
 import Sidebar from '../Sidebar/Sidebar';
 import { Box, Wrapper } from './CreateProducts.style';
 import Button from '../../../components/Button/Button';
+import { Input } from '../../../components/Input/Input';
 
 const CreateProducts = () => {
   return (
@@ -16,9 +17,9 @@ const CreateProducts = () => {
             <AiOutlinePlusCircle style={{ fontSize: '30px' }} />
             <Heading> Mahsuotni yaratish</Heading>
           </FlexBox>
-          <input type="text" placeholder="Nomi" />
-          <input type="number" placeholder="Narxi" />
-          <input type="text" placeholder="Surat uchun link" />
+          <Input type="text" placeholder="Nomi" />
+          <Input type="number" placeholder="Narxi" />
+          <Input type="text" placeholder="Surat uchun link" />
           <textarea type="text" placeholder="Tasvir" />
           <Button wd="90%">Yaratish</Button>
         </Box>

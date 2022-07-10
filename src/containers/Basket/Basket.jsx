@@ -57,7 +57,7 @@ const Basket = () => {
         </Heading>
         <DropdownContent>
           {sum === 0 ? (
-            <Heading size="sm">Mahsulotni tanlang!</Heading>
+            <Heading>Mahsulotni tanlang!</Heading>
           ) : (
             <FlexBox flexDirection="row" justifyContent="space-evenly">
               <Heading align="end" margin="5px" style={{ fontSize: '18px' }}>
