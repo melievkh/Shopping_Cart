@@ -1,6 +1,6 @@
 import styled from 'styled-components';
-import colors from '../../../../assets/color/colors';
-import FlexBox from '../../../Flexbox/FlexBox';
+import colors from '../../../assets/color/colors';
+import FlexBox from '../../../components/Flexbox/FlexBox';
 
 export const Wrapper = styled(FlexBox)`
   width: 1100px;

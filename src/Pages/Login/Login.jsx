@@ -1,32 +1,32 @@
 import React, { useState } from 'react';
+import { useDispatch } from 'react-redux';
+import { Link, useNavigate } from 'react-router-dom';
+import { AiOutlineArrowRight } from 'react-icons/ai';
+import { FaUserAlt } from 'react-icons/fa';
+import { Box, Wrapper } from './Login.style';
 import Button from '../../components/button/Button';
 import FlexBox from '../../components/Flexbox/FlexBox';
 import Heading from '../../components/Heading/Heading';
-import { Box, Wrapper } from './Login.style';
-import { FaUserAlt } from 'react-icons/fa';
-import { AiOutlineArrowRight } from 'react-icons/ai';
 import colors from '../../assets/color/colors';
-import { Link, useNavigate } from 'react-router-dom';
-import authApi from '../../api/authApi';
+import { login } from '../../store/user/actions';
 
 const Login = () => {
+  const dispatch = useDispatch();
   const navigate = useNavigate();
 
   const [details, setDetails] = useState({
-    username: '',
     phoneNumber: '',
+    password: '',
   });
 
   const handleChange = (e) => {
-    setDetails({ ...details, [e.target.name]: [e.target.value] });
+    setDetails({ ...details, [e.target.name]: e.target.value });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    authApi
-      .login(details)
-      .then((res) => alert(res.data.message), navigate('/'))
-      .catch((err) => alert(err.response.data.message));
+    await dispatch(login(details));
+    navigate('/');
   };
 
   return (
@@ -42,7 +42,7 @@ const Login = () => {
         </Heading>
         <FlexBox wd="100%" gap="30px">
           <input
-            type="number"
+            type="tel"
             placeholder="Phone number"
             name="phoneNumber"
             value={details.phoneNumber}

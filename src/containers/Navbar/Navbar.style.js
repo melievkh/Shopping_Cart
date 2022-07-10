@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import { media } from '../../assets/media/media';
 
-const Wrapper = styled.div`
+export const Wrapper = styled.div`
   width: 100%;
   height: 60px;
   top: 0;
@@ -20,7 +20,7 @@ const Wrapper = styled.div`
   position: absolute;
   z-index: 1;
 
-  input{
+  input {
     width: 300px;
     height: 30px;
     outline: none;
@@ -33,4 +33,20 @@ const Wrapper = styled.div`
   }
 `;
 
-export default Wrapper;
+export const DropdownContent = styled.div`
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  border-radius: 4px;
+  min-width: 100px;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  padding: 12px 16px;
+  z-index: 1;
+`;
+export const Dropdown = styled.div`
+  position: relative;
+  display: inline-block;
+  &:hover ${DropdownContent} {
+    display: block;
+  }
+`;

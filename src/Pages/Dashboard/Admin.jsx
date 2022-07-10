@@ -1,13 +1,13 @@
 import React from 'react';
 import Wrapper from './Admin.style';
-import Order from './containers/Orders/Order';
-import Sidebar from './containers/Sidebar/Sidebar';
+import Orders from './Orders/Orders';
+import Sidebar from './Sidebar/Sidebar';
 
 export const Admin = () => {
   return (
     <Wrapper>
       <Sidebar />
-      <Order />
+      <Orders />
     </Wrapper>
   );
 };

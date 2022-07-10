@@ -13,11 +13,12 @@ const productReducer = (state = initialState, action) => {
         products: action.payload.map((product) => {
           return { ...product, id: product._id, amount: 0, added: false };
         }),
+        sum: 0,
       };
     case 'INCREMENT':
       return {
         products: state.products.map((product) => {
-          if (product.id === action.payload.productId) {
+          if (product.id === action.payload.product) {
             return {
               ...product,
               amount: product.amount + 1,
@@ -32,7 +33,7 @@ const productReducer = (state = initialState, action) => {
     case 'DECREMENT':
       return {
         products: state.products.map((product) => {
-          if (product.id === action.payload.productId) {
+          if (product.id === action.payload.product) {
             if (product.amount === 1) {
               return { ...product, amount: 0, added: false };
             }
@@ -46,22 +47,21 @@ const productReducer = (state = initialState, action) => {
         }),
         sum: state.sum - action.payload.price,
       };
+    // case 'DELETE_ORDER':
+    //   return {
+    //     products: state.products.map((product) => {
+    //       if (product.id === action.payload.product) {
+    //         return {
+    //           ...product,
+    //           amount: 0,
+    //           added: false,
+    //         };
+    //       }
+    //       return product;
+    //     }),
+    //     sum: 0,
+    //   };
 
-    case 'REMOVE_FROM_BASKET':
-      return {
-        products: state.products.map((product) => {
-          if (product.id === action.payload.productId) {
-            return {
-              ...product,
-              amount: 0,
-              added: false,
-            };
-          }
-          return product;
-        }),
-
-        // sum: state.sum - action.payload.price,
-      };
     default:
       return state;
   }

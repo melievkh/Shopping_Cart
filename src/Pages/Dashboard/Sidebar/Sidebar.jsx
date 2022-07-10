@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
-import { SidebarToggler, StyledLink, Wrapper } from './Sidebar.style';
-import { AiOutlineDoubleRight, AiOutlinePlusCircle } from 'react-icons/ai';
 import { BsBasket } from 'react-icons/bs';
-import Heading from '../../../Heading/Heading';
-import colors from '../../../../assets/color/colors';
+import { AiOutlineDoubleRight, AiOutlinePlusCircle } from 'react-icons/ai';
+import { SidebarToggler, StyledLink, Wrapper } from './Sidebar.style';
+import colors from '../../../assets/color/colors';
+import Heading from '../../../components/Heading/Heading';
 
 const Sidebar = () => {
   const [isOpen, setIsOpen] = useState(false);

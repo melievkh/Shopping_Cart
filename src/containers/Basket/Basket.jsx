@@ -14,6 +14,12 @@ import Button from '../../components/button/Button';
 import colors from '../../assets/color/colors';
 import FlexBox from '../../components/Flexbox/FlexBox';
 import orderApi from '../../api/orderApi';
+import {
+  decrementProductByOne,
+  getAllProducts,
+  incrementProductByOne,
+  removeProduct,
+} from '../../store/product/actions';
 
 const Basket = () => {
   const dispatch = useDispatch();
@@ -25,36 +31,24 @@ const Basket = () => {
 
   const selectedOrders = products.filter((product) => product.added === true);
   const selectedOrdersId = selectedOrders.map((order) => {
-    return { amount: order.amount, productId: order.id };
+    return { amount: order.amount, product: order.id };
   });
 
   useEffect(() => {
     setOrders({
       totalPrice: sum,
-      userId: user._id,
+      user: user._id,
       products: selectedOrdersId,
     });
   }, [sum]);
 
-  const handleAdd = (productId, price) => {
-    dispatch({ type: 'INCREMENT', payload: { productId, price } });
-  };
-
-  const handleDecrease = (productId, price) => {
-    dispatch({ type: 'DECREMENT', payload: { productId, price } });
-  };
-
-  const handleRemove = (productId, price) => {
-    dispatch({ type: 'REMOVE_FROM_BASKET', payload: { productId, price } });
-  };
-
   const createOrder = (e) => {
     e.preventDefault();
-
     orderApi
       .createOrder(orders)
       .then((res) => console.log(res.data))
       .catch((err) => console.log(err.response.data));
+    dispatch(getAllProducts());
   };
 
   return (
@@ -63,14 +57,18 @@ const Basket = () => {
         <FiShoppingCart /> Savatcha
       </Heading>
       <DropdownContent>
-        <FlexBox flexDirection="row" justifyContent="space-evenly">
-          <Heading align="end" margin="5px" style={{ fontSize: '18px' }}>
-            {sum} so'm
-          </Heading>
-          <Button wd="140px" hg="30px" onClick={createOrder}>
-            {sum === 0 ? 'Mahsulot tanlang' : 'Buyurtma berish'}
-          </Button>
-        </FlexBox>
+        {sum === 0 ? (
+          <Heading size="sm">Mahsulotni tanlang!</Heading>
+        ) : (
+          <FlexBox flexDirection="row" justifyContent="space-evenly">
+            <Heading align="end" margin="5px" style={{ fontSize: '18px' }}>
+              {sum} so'm
+            </Heading>
+            <Button wd="140px" hg="30px" onClick={createOrder}>
+              Buyurtma bering
+            </Button>
+          </FlexBox>
+        )}
 
         <ul>
           {products.map((product) => (
@@ -81,13 +79,6 @@ const Basket = () => {
                     <Heading color={colors.white} style={{ fontSize: '16px' }}>
                       {product.name}
                     </Heading>
-                    <Button
-                      wd="30px"
-                      hg="30px"
-                      onClick={() => handleRemove(product.id, product.price)}
-                    >
-                      <MdDelete />
-                    </Button>
                   </Name>
                   <ButtonsBox
                     justifyContent="flex-start"
@@ -97,7 +88,11 @@ const Basket = () => {
                     <Button
                       wd="35px"
                       hg="30px"
-                      onClick={() => handleAdd(product.id, product.price)}
+                      onClick={() =>
+                        dispatch(
+                          incrementProductByOne(product.id, product.price)
+                        )
+                      }
                     >
                       +
                     </Button>
@@ -105,7 +100,11 @@ const Basket = () => {
                     <Button
                       wd="35px"
                       hg="30px"
-                      onClick={() => handleDecrease(product.id, product.price)}
+                      onClick={() =>
+                        dispatch(
+                          decrementProductByOne(product.id, product.price)
+                        )
+                      }
                     >
                       -
                     </Button>

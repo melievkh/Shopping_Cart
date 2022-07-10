@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
-import colors from '../../../../assets/color/colors';
+import colors from '../../../assets/color/colors';
 
 export const Wrapper = styled.div`
   width: fit-content;

@@ -1,10 +1,14 @@
 import React, { useEffect } from 'react';
-import Heading from '../../components/Heading/Heading';
-import { Card, CardDetails, Wrapper } from '../pages_styles/pageStyle';
 import { useSelector, useDispatch } from 'react-redux';
+import { Card, CardDetails, Wrapper } from './Products.style';
+import {
+  decrementProductByOne,
+  getAllProducts,
+  incrementProductByOne,
+} from '../../store/product/actions';
+import Heading from '../../components/Heading/Heading';
 import FlexBox from '../../components/Flexbox/FlexBox';
 import Button from '../../components/button/Button';
-import { getAllProducts } from '../../store/actions/productAction';
 
 const Products = () => {
   const dispatch = useDispatch();
@@ -14,18 +18,9 @@ const Products = () => {
     dispatch(getAllProducts());
   }, []);
 
-  const handleAdd = (productId, price) => {
-    dispatch({ type: 'INCREMENT', payload: { productId, price } });
-  };
-
-  const handleDecrease = (productId, price) => {
-    dispatch({ type: 'DECREMENT', payload: { productId, price } });
-  };
-
   return (
     <Wrapper>
       <ul>
-        
         {products?.map((product) => (
           <li key={product.id}>
             <Card>
@@ -36,7 +31,11 @@ const Products = () => {
                 </Heading>
                 <Heading margin="5px">Narxi: {product.price} so'm</Heading>
                 {product.amount === 0 ? (
-                  <Button onClick={() => handleAdd(product.id, product.price)}>
+                  <Button
+                    onClick={() =>
+                      dispatch(incrementProductByOne(product.id, product.price))
+                    }
+                  >
                     Savatga Qo'shish
                   </Button>
                 ) : (
@@ -49,7 +48,11 @@ const Products = () => {
                     <Button
                       wd="35px"
                       hg="30px"
-                      onClick={() => handleAdd(product.id, product.price)}
+                      onClick={() =>
+                        dispatch(
+                          incrementProductByOne(product.id, product.price)
+                        )
+                      }
                     >
                       +
                     </Button>
@@ -57,7 +60,9 @@ const Products = () => {
                     <Button
                       wd="35px"
                       hg="30px"
-                      onClick={() => handleDecrease(product.id, product.price)}
+                      onClick={() =>
+                        decrementProductByOne(product.id, product.price)
+                      }
                     >
                       -
                     </Button>
