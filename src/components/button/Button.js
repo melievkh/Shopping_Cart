@@ -10,7 +10,7 @@ const Button = styled.button`
   font-weight: 600;
   font-size: 16px;
   display: flex;
-  justify-content: center;
+  justify-content: ${({justifyContent})=> justifyContent || 'center'};
   align-items: center;
   border-radius: 8px;
   cursor: pointer;

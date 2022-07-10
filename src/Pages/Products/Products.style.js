@@ -47,6 +47,9 @@ export const CardMedia = styled.img`
 export const CardDetails = styled.div`
   width: 100%;
   height: fit;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
   padding: 20px;
   box-sizing: border-box;
 `;

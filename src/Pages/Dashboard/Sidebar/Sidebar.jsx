@@ -31,7 +31,7 @@ const Sidebar = () => {
           </Heading>
         )}
       </StyledLink>
-      <StyledLink to="/existprods">
+      <StyledLink to="/edit-products">
         <MdProductionQuantityLimits />
         {isOpen && (
           <Heading color={colors.white} style={{ fontSize: '18px' }}>
@@ -39,7 +39,7 @@ const Sidebar = () => {
           </Heading>
         )}
       </StyledLink>
-      <StyledLink to="/create">
+      <StyledLink to="/create-products">
         <AiOutlinePlusCircle />
         {isOpen && (
           <Heading color={colors.white} style={{ fontSize: '18px' }}>

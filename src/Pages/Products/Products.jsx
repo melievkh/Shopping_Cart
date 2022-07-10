@@ -24,42 +24,45 @@ const Products = () => {
         <Card key={product.id}>
           <CardMedia src={product.picture} alt="Loading..." />
           <CardDetails>
-            <Heading size="md">{product.name}</Heading>
-
-            <Heading size="sm">{product.price} so'm</Heading>
-            {product.amount === 0 ? (
-              <Button
-                wd="120px"
-                hg="35px"
-                onClick={() =>
-                  dispatch(incrementProductByOne(product.id, product.price))
-                }
-              >
-                Qo'shish
-              </Button>
-            ) : (
-              <FlexBox flexDirection="row" gap="20px" justifyContent="flex-end">
+            <Heading size="md" align="start">
+              {product.name}
+            </Heading>
+            <FlexBox flexDirection="row" justifyContent="space-between">
+              <Heading>{product.price} so'm</Heading>
+              {product.amount === 0 ? (
                 <Button
-                  wd="35px"
-                  hg="30px"
+                  wd="120px"
+                  hg="35px"
                   onClick={() =>
                     dispatch(incrementProductByOne(product.id, product.price))
                   }
                 >
-                  +
+                  Qo'shish
                 </Button>
-                <p>{product.amount}</p>
-                <Button
-                  wd="35px"
-                  hg="30px"
-                  onClick={() =>
-                    decrementProductByOne(product.id, product.price)
-                  }
-                >
-                  -
-                </Button>
-              </FlexBox>
-            )}
+              ) : (
+                <FlexBox flexDirection="row" gap="4px">
+                  <Button
+                    wd="35px"
+                    hg="30px"
+                    onClick={() =>
+                      dispatch(incrementProductByOne(product.id, product.price))
+                    }
+                  >
+                    +
+                  </Button>
+                  <p>{product.amount}</p>
+                  <Button
+                    wd="35px"
+                    hg="30px"
+                    onClick={() =>
+                      decrementProductByOne(product.id, product.price)
+                    }
+                  >
+                    -
+                  </Button>
+                </FlexBox>
+              )}
+            </FlexBox>
           </CardDetails>
         </Card>
       ))}

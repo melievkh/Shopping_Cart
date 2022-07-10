@@ -14,7 +14,7 @@ const PrivateRoute = () => {
     navigate('/');
   }, [isLoggedIn]);
 
-  return userRole === 'user' ? <Main /> : <Admin />;
+  return userRole === 'admin' ? <Admin /> : <Main />;
 };
 
 export default PrivateRoute;

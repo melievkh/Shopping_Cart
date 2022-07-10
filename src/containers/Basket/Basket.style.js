@@ -5,17 +5,16 @@ import FlexBox from '../../components/Flexbox/FlexBox';
 export const Wrapper = styled(FlexBox)`
   width: 30%;
   hr {
-    width: 100%;
-    height: 2px;
+    height: 1px;
+    background-color: #d1d1d1;
     border: none;
-    background-image: linear-gradient
-      (to right, rgba(75, 78, 150), cornflowerblue, rgba(75, 78, 150));
   }
 `;
 
 export const DropdownContent = styled.div`
   width: 280px;
-  height: 320px;
+  height: fit-content;
+  max-height: 350px;
   display: none;
   justify-content: center;
   align-items: center;
@@ -24,13 +23,7 @@ export const DropdownContent = styled.div`
   background-color: ${colors.white};
   box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
   z-index: 1;
-  overflow-x: scroll;
-  &::-webkit-scrollbar {
-    width: 10px;
-  }
-  li {
-    list-style-type: none;
-  }
+  padding: 10px 20px;
 `;
 
 export const Dropdown = styled.div`
@@ -44,16 +37,28 @@ export const Dropdown = styled.div`
   }
 `;
 
-export const Name = styled(FlexBox)`
-  width: 100%;
-  height: 50%;
+export const ProductsList = styled.div`
+  height: 80%;
+  overflow-x: scroll;
+  &::-webkit-scrollbar {
+    width: 10px;
+  }
 `;
-export const ButtonsBox = styled(FlexBox)`
+export const ButtonsContainer = styled(FlexBox)`
   width: 100%;
   height: 50%;
 `;
 
-export const Cards = styled(FlexBox)`
+export const Cards = styled.div`
+  height: 70px;
   margin-top: 8px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
   box-sizing: border-box;
+`;
+export const OrderButton = styled.div`
+  height: 20%;
+  display: flex;
+  justify-content: space-evenly;
 `;

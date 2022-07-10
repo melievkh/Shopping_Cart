@@ -5,7 +5,6 @@ import { Link, useNavigate } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import { FiLogIn, FiSearch, FiUserPlus } from 'react-icons/fi';
 import { TbUserCircle } from 'react-icons/tb';
-import colors from '../../assets/color/colors';
 import FlexBox from '../../components/Flexbox/FlexBox';
 import Button from '../../components/Button/Button';
 import Heading from '../../components/Heading/Heading';
@@ -41,21 +40,21 @@ const Navbar = () => {
         </Button>
       </FlexBox>
       {isLoggedIn ? (
-        <Dropdown>
-          <FlexBox flexDirection='row' gap='20px'>
-            <TbUserCircle style={{ fontSize: '30px' }} />
+        <FlexBox flexDirection="row" gap="10px">
+          <Dropdown>
+            <TbUserCircle style={{ fontSize: '30px', cursor: 'pointer' }} />
             <DropdownContent>
               <Button onClick={() => logout()}>chiqish</Button>
             </DropdownContent>
-            <Heading color={colors.white}>{username}</Heading>
-          </FlexBox>
-        </Dropdown>
+          </Dropdown>
+          <Heading>{username}</Heading>
+        </FlexBox>
       ) : (
         <FlexBox flexDirection="row" gap="20px">
-          <Link to="/login" style={{ color: colors.black }}>
+          <Link to="/login" style={{ color: 'grey' }}>
             <FiLogIn /> Kirish
           </Link>
-          <Link to="/register" style={{ color: colors.black }}>
+          <Link to="/register" style={{ color: 'grey' }}>
             <FiUserPlus /> Ro'yhatdan o'tish
           </Link>
         </FlexBox>
