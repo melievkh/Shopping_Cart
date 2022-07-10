@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { BsBasket } from 'react-icons/bs';
-import { AiOutlineDoubleRight, AiOutlinePlusCircle } from 'react-icons/ai';
+import { AiOutlineDoubleLeft, AiOutlinePlusCircle } from 'react-icons/ai';
+import { MdProductionQuantityLimits } from 'react-icons/md';
 import { SidebarToggler, StyledLink, Wrapper } from './Sidebar.style';
 import colors from '../../../assets/color/colors';
 import Heading from '../../../components/Heading/Heading';
@@ -11,7 +12,7 @@ const Sidebar = () => {
   return (
     <Wrapper>
       <SidebarToggler isOpen={isOpen} onClick={() => setIsOpen(!isOpen)}>
-        <AiOutlineDoubleRight />
+        <AiOutlineDoubleLeft />
       </SidebarToggler>
       {isOpen ? (
         <Heading margin="10px" color={colors.white}>
@@ -22,7 +23,7 @@ const Sidebar = () => {
           A
         </Heading>
       )}
-      <StyledLink to="/admin/candidates">
+      <StyledLink to="/admin">
         <BsBasket />
         {isOpen && (
           <Heading color={colors.white} style={{ fontSize: '18px' }}>
@@ -30,11 +31,19 @@ const Sidebar = () => {
           </Heading>
         )}
       </StyledLink>
-      <StyledLink to="/admin/contacts">
+      <StyledLink to="/existprods">
+        <MdProductionQuantityLimits />
+        {isOpen && (
+          <Heading color={colors.white} style={{ fontSize: '18px' }}>
+            Mahsulotlar
+          </Heading>
+        )}
+      </StyledLink>
+      <StyledLink to="/create">
         <AiOutlinePlusCircle />
         {isOpen && (
           <Heading color={colors.white} style={{ fontSize: '18px' }}>
-            Mahsulot qo'shish
+            Qo'shish
           </Heading>
         )}
       </StyledLink>

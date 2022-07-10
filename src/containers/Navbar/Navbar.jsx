@@ -7,7 +7,7 @@ import { FiLogIn, FiSearch, FiUserPlus } from 'react-icons/fi';
 import { TbUserCircle } from 'react-icons/tb';
 import colors from '../../assets/color/colors';
 import FlexBox from '../../components/Flexbox/FlexBox';
-import Button from '../../components/button/Button';
+import Button from '../../components/Button/Button';
 import Heading from '../../components/Heading/Heading';
 
 const Navbar = () => {
@@ -15,9 +15,9 @@ const Navbar = () => {
   const username = useSelector((state) => state.user.username);
   const navigate = useNavigate();
 
-  const logout = async () => {
-    await localStorage.removeItem('user');
-    isLoggedIn = false;
+  const logout = () => {
+    localStorage.removeItem('user');
+    localStorage.removeItem('token');
     navigate('/login');
   };
 
@@ -25,7 +25,7 @@ const Navbar = () => {
     <Wrapper style={{ position: 'fixed' }}>
       <Basket />
       <FlexBox
-        wd="55%"
+        wd="60%"
         flexDirection="row"
         gap="30px"
         justifyContent="flex-end"
@@ -52,11 +52,11 @@ const Navbar = () => {
             <Heading color={colors.white}>{username}</Heading>
           </Dropdown>
         ) : (
-          <FlexBox flexDirection="row">
-            <Link to="/login" style={{ color: colors.white }}>
+          <FlexBox flexDirection="row" gap="20px">
+            <Link to="/login" style={{ color: colors.black }}>
               <FiLogIn /> Kirish
             </Link>
-            <Link to="/register" style={{ color: colors.white }}>
+            <Link to="/register" style={{ color: colors.black }}>
               <FiUserPlus /> Ro'yhatdan o'tish
             </Link>
           </FlexBox>

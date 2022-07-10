@@ -8,7 +8,7 @@ import {
 } from '../../store/product/actions';
 import Heading from '../../components/Heading/Heading';
 import FlexBox from '../../components/Flexbox/FlexBox';
-import Button from '../../components/button/Button';
+import Button from '../../components/Button/Button';
 
 const Products = () => {
   const dispatch = useDispatch();
@@ -29,45 +29,51 @@ const Products = () => {
                 <Heading size="md" margin="5px">
                   {product.name}
                 </Heading>
-                <Heading margin="5px">Narxi: {product.price} so'm</Heading>
-                {product.amount === 0 ? (
-                  <Button
-                    onClick={() =>
-                      dispatch(incrementProductByOne(product.id, product.price))
-                    }
-                  >
-                    Savatga Qo'shish
-                  </Button>
-                ) : (
-                  <FlexBox
-                    wd="100%"
-                    flexDirection="row"
-                    gap="20px"
-                    justifyContent="flex-end"
-                  >
+                <FlexBox wd='100%' flexDirection="row" justifyContent='space-evenly'>
+                  <Heading size="sm" margin="5px">
+                    {product.price} so'm
+                  </Heading>
+                  {product.amount === 0 ? (
                     <Button
-                      wd="35px"
-                      hg="30px"
+                      wd="120px" hg='35px'
                       onClick={() =>
                         dispatch(
                           incrementProductByOne(product.id, product.price)
                         )
                       }
                     >
-                      +
+                      Qo'shish
                     </Button>
-                    <p>{product.amount}</p>
-                    <Button
-                      wd="35px"
-                      hg="30px"
-                      onClick={() =>
-                        decrementProductByOne(product.id, product.price)
-                      }
+                  ) : (
+                    <FlexBox
+                      flexDirection="row"
+                      gap="20px"
+                      justifyContent="flex-end"
                     >
-                      -
-                    </Button>
-                  </FlexBox>
-                )}
+                      <Button
+                        wd="35px"
+                        hg="30px"
+                        onClick={() =>
+                          dispatch(
+                            incrementProductByOne(product.id, product.price)
+                          )
+                        }
+                      >
+                        +
+                      </Button>
+                      <p>{product.amount}</p>
+                      <Button
+                        wd="35px"
+                        hg="30px"
+                        onClick={() =>
+                          decrementProductByOne(product.id, product.price)
+                        }
+                      >
+                        -
+                      </Button>
+                    </FlexBox>
+                  )}
+                </FlexBox>
               </CardDetails>
             </Card>
           </li>

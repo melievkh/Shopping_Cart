@@ -47,20 +47,6 @@ const productReducer = (state = initialState, action) => {
         }),
         sum: state.sum - action.payload.price,
       };
-    // case 'DELETE_ORDER':
-    //   return {
-    //     products: state.products.map((product) => {
-    //       if (product.id === action.payload.product) {
-    //         return {
-    //           ...product,
-    //           amount: 0,
-    //           added: false,
-    //         };
-    //       }
-    //       return product;
-    //     }),
-    //     sum: 0,
-    //   };
 
     default:
       return state;

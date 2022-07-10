@@ -3,10 +3,11 @@ import colors from '../../../assets/color/colors';
 import FlexBox from '../../../components/Flexbox/FlexBox';
 
 export const Wrapper = styled(FlexBox)`
-  width: 900px;
-  height: 100%;
-  flex-direction: column;
+  width: 1250px;
+  height: 100vh;
+  flex-direction: row;
   justify-content: flex-start;
+  align-items: flex-start;
 `;
 
 export const Table = styled.table`

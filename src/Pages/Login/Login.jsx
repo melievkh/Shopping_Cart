@@ -4,7 +4,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import { AiOutlineArrowRight } from 'react-icons/ai';
 import { FaUserAlt } from 'react-icons/fa';
 import { Box, Wrapper } from './Login.style';
-import Button from '../../components/button/Button';
+import Button from '../../components/Button/Button';
 import FlexBox from '../../components/Flexbox/FlexBox';
 import Heading from '../../components/Heading/Heading';
 import colors from '../../assets/color/colors';
@@ -23,9 +23,9 @@ const Login = () => {
     setDetails({ ...details, [e.target.name]: e.target.value });
   };
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = (e) => {
     e.preventDefault();
-    await dispatch(login(details));
+    dispatch(login(details));
     navigate('/');
   };
 

@@ -1,17 +1,12 @@
 import styled from 'styled-components';
+import colors from '../../assets/color/colors';
 import { media } from '../../assets/media/media';
 
 export const Wrapper = styled.div`
   width: 100%;
   height: 60px;
   top: 0;
-  background: rgb(2, 0, 36);
-  background: linear-gradient(
-    90deg,
-    rgba(2, 0, 36, 1) 0%,
-    rgba(85, 110, 143, 1) 100%,
-    rgba(0, 212, 255, 1) 100%
-  );
+  background-color: ${colors.white};
   display: flex;
   flex-direction: row;
   justify-content: space-around;
@@ -25,6 +20,7 @@ export const Wrapper = styled.div`
     height: 30px;
     outline: none;
     border-radius: 8px 0 0 8px;
+    background-color: ${colors.bgColor};
     border: none;
     text-indent: 5px;
   }

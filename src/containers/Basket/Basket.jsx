@@ -1,24 +1,22 @@
 import React, { useEffect, useState } from 'react';
 import { FiShoppingCart } from 'react-icons/fi';
-import { MdDelete } from 'react-icons/md';
 import {
   ButtonsBox,
   Cards,
   Dropdown,
   DropdownContent,
   Name,
+  Wrapper,
 } from './Basket.style';
 import { useSelector, useDispatch } from 'react-redux';
 import Heading from '../../components/Heading/Heading';
-import Button from '../../components/button/Button';
-import colors from '../../assets/color/colors';
+import Button from '../../components/Button/Button';
 import FlexBox from '../../components/Flexbox/FlexBox';
 import orderApi from '../../api/orderApi';
 import {
   decrementProductByOne,
   getAllProducts,
   incrementProductByOne,
-  removeProduct,
 } from '../../store/product/actions';
 
 const Basket = () => {
@@ -52,39 +50,34 @@ const Basket = () => {
   };
 
   return (
-    <Dropdown>
-      <Heading color={colors.white}>
-        <FiShoppingCart /> Savatcha
-      </Heading>
-      <DropdownContent>
-        {sum === 0 ? (
-          <Heading size="sm">Mahsulotni tanlang!</Heading>
-        ) : (
-          <FlexBox flexDirection="row" justifyContent="space-evenly">
-            <Heading align="end" margin="5px" style={{ fontSize: '18px' }}>
-              {sum} so'm
-            </Heading>
-            <Button wd="140px" hg="30px" onClick={createOrder}>
-              Buyurtma bering
-            </Button>
-          </FlexBox>
-        )}
-
-        <ul>
+    <Wrapper>
+      <Dropdown>
+        <Heading>
+          <FiShoppingCart /> Savatcha
+        </Heading>
+        <DropdownContent>
+          {sum === 0 ? (
+            <Heading size="sm">Mahsulotni tanlang!</Heading>
+          ) : (
+            <FlexBox flexDirection="row" justifyContent="space-evenly">
+              <Heading align="end" margin="5px" style={{ fontSize: '18px' }}>
+                {sum} so'm
+              </Heading>
+              <Button wd="140px" hg="30px" onClick={createOrder}>
+                Buyurtma bering
+              </Button>
+            </FlexBox>
+          )}
           {products.map((product) => (
             <li key={product.id}>
               {product.added && (
-                <Cards hg="60px" wd="100%" key={product.id}>
+                <Cards hg="65px" wd="100%">
                   <Name flexDirection="row" justifyContent="space-around">
-                    <Heading color={colors.white} style={{ fontSize: '16px' }}>
+                    <Heading style={{ fontSize: '22px' }}>
                       {product.name}
                     </Heading>
                   </Name>
-                  <ButtonsBox
-                    justifyContent="flex-start"
-                    flexDirection="row"
-                    gap="10px"
-                  >
+                  <ButtonsBox justifyContent="space-evenly" flexDirection="row">
                     <Button
                       wd="35px"
                       hg="30px"
@@ -96,7 +89,7 @@ const Basket = () => {
                     >
                       +
                     </Button>
-                    <p>{product.amount}</p>
+                    <Heading>{product.amount}</Heading>
                     <Button
                       wd="35px"
                       hg="30px"
@@ -108,14 +101,16 @@ const Basket = () => {
                     >
                       -
                     </Button>
+                    <Heading>{product.price} so'm</Heading>
                   </ButtonsBox>
                 </Cards>
               )}
+              <hr />
             </li>
           ))}
-        </ul>
-      </DropdownContent>
-    </Dropdown>
+        </DropdownContent>
+      </Dropdown>
+    </Wrapper>
   );
 };
 
