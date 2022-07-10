@@ -5,7 +5,7 @@ import colors from '../../../assets/color/colors';
 export const Wrapper = styled.div`
   width: fit-content;
   height: 100%;
-  background-color: ${colors.blue};
+  background-color: ${colors.white};
   position: relative;
   box-sizing: border-box;
   padding: 0 20px;
@@ -15,6 +15,9 @@ export const Wrapper = styled.div`
   justify-content: start;
   align-items: flex-start;
   box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+  svg{
+    color: blue;
+  }
 `;
 
 export const SidebarToggler = styled.button`

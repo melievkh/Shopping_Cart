@@ -1,6 +1,5 @@
 import styled, { css } from 'styled-components';
 import colors from '../../assets/color/colors';
-import { media } from '../../assets/media/media';
 
 const headingSize = {
   sm: css`
@@ -20,10 +19,6 @@ const Heading = styled.h1`
   text-align: ${({ align }) => align || 'center'};
   margin: ${({ margin }) => margin || 0};
   font-family: monospace;
-
-  ${media.lg} {
-    font-size: 20px;
-  }
 `;
 
 export default Heading;

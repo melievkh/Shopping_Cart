@@ -1,6 +1,5 @@
 import styled from 'styled-components';
 import colors from '../../assets/color/colors';
-import { media } from '../../assets/media/media';
 
 export const Wrapper = styled.div`
   width: 100%;
@@ -12,10 +11,6 @@ export const Wrapper = styled.div`
   align-items: center;
   gap: 20px;
   box-sizing: border-box;
-
-  ${media.lg} {
-    height: 70px;
-  }
 `;
 
 export const DropdownContent = styled.div`

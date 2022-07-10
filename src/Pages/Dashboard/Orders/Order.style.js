@@ -3,14 +3,15 @@ import colors from '../../../assets/color/colors';
 import FlexBox from '../../../components/Flexbox/FlexBox';
 
 export const Wrapper = styled(FlexBox)`
-  width: 900px;
+  width: 1180px;
   height: 100%;
   flex-direction: column;
   justify-content: flex-start;
+  background-color: ${colors.bgColor};
 `;
 
 export const Table = styled.table`
-  width: 90%;
+  width: 80%;
   height: auto;
   border-collapse: collapse;
   border-radius: 8px;
@@ -18,11 +19,10 @@ export const Table = styled.table`
   th {
     padding: 0 10px;
     height: 40px;
-    color: white;
     font-weight: 700;
     font-size: 16px;
     border: 1px solid grey;
-    background-color: ${colors.blue};
+    background-color: ${colors.white};
   }
   td {
     padding: 2px 10px;

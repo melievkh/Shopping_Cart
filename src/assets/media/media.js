@@ -1,5 +1,1 @@
-export const media = {
-  sm: `@media (max-width: 500px)`,
-  md: `@media (max-width: 700px)`,
-  lg: `@media (max-width: 900px)`,
-};
+export default const media = `@media (max-width: 500px)`;

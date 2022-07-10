@@ -1,5 +1,4 @@
 import styled from 'styled-components';
-import { media } from '../../assets/media/media';
 import colors from '../../assets/color/colors';
 
 export const Wrapper = styled.div`
@@ -12,11 +11,6 @@ export const Wrapper = styled.div`
   box-sizing: border-box;
   padding: 40px 140px;
   gap: 30px;
-
-  ${media.lg} {
-    height: auto;
-    flex-direction: column;
-  }
 `;
 
 export const Card = styled.div`
@@ -27,15 +21,6 @@ export const Card = styled.div`
   flex-direction: column;
   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
   background-color: ${colors.white};
-
-  ${media.md} {
-    width: 260px;
-    height: 380px;
-  }
-  ${media.sm} {
-    width: 170px;
-    height: 260px;
-  }
 `;
 
 export const CardMedia = styled.img`
