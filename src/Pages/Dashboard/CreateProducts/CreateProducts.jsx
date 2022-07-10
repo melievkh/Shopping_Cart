@@ -3,10 +3,10 @@ import { AiOutlinePlusCircle } from 'react-icons/ai';
 import FlexBox from '../../../components/Flexbox/FlexBox';
 import Heading from '../../../components/Heading/Heading';
 import Sidebar from '../Sidebar/Sidebar';
-import { Box, Wrapper } from './CreateProds.style';
+import { Box, Wrapper } from './CreateProducts.style';
 import Button from '../../../components/Button/Button';
 
-const CreateProds = () => {
+const CreateProducts = () => {
   return (
     <Wrapper>
       <Sidebar />
@@ -27,4 +27,4 @@ const CreateProds = () => {
   );
 };
 
-export default CreateProds;
+export default CreateProducts;

@@ -22,7 +22,7 @@ const Navbar = () => {
   };
 
   return (
-    <Wrapper style={{ position: 'fixed' }}>
+    <Wrapper>
       <Basket />
       <FlexBox
         wd="60%"

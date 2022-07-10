@@ -6,12 +6,12 @@ import FlexBox from '../../../components/Flexbox/FlexBox';
 import Heading from '../../../components/Heading/Heading';
 import { getAllProducts } from '../../../store/product/actions';
 import Sidebar from '../Sidebar/Sidebar';
-import { Table, Wrapper } from './ExistProducts.style';
+import { Table, Wrapper } from './EditProducts.style';
 import { useSelector, useDispatch } from 'react-redux';
 import Modal from '../../../components/Modal/Modal';
 import useToggle from '../../../hooks/useToggle';
 
-const ExistProducts = () => {
+const Products = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const modal = useToggle();
@@ -68,4 +68,4 @@ const ExistProducts = () => {
   );
 };
 
-export default ExistProducts;
+export default Products;

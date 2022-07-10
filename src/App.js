@@ -6,10 +6,10 @@ import Register from './Pages/Register/Register';
 import Login from './Pages/Login/Login';
 import { Admin } from './Pages/Dashboard/Admin';
 import PrivateRoute from './components/privateRoute/PrivateRoute';
-import CreateProds from './Pages/Dashboard/CreateProds/CreateProds';
-import ExistProducts from './Pages/Dashboard/ExistProducts/ExistProducts';
+import CreateProducts from './Pages/Dashboard/CreateProducts/CreateProducts';
+import EditProducts from './Pages/Dashboard/EditProducts/EditProducts';
 
-function Main() {
+function Home() {
   return (
     <>
       <Navbar />
@@ -21,12 +21,12 @@ function Main() {
 function App() {
   return (
     <Routes>
-      <Route path="/" element={<Main />} />
+      <Route path="/" element={<Home />} />
       <Route path="/register" element={<Register />} />
       <Route path="/login" element={<Login />} />
       <Route element={<PrivateRoute />}>
-        <Route path="/create" element={<CreateProds />} />
-        <Route path="/existprods" element={<ExistProducts />} />
+        <Route path="/create-products" element={<CreateProducts />} />
+        <Route path="/edit-products" element={<EditProducts />} />
         <Route path="/admin" element={<Admin />} />
       </Route>
     </Routes>
