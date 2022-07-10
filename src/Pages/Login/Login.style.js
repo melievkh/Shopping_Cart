@@ -12,6 +12,7 @@ export const Form = styled.form`
   display: flex;
   gap: 30px;
   flex-direction: column;
+  background-color: white;
   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
   border-radius: 8px;
 `;

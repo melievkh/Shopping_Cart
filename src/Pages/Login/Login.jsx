@@ -8,10 +8,14 @@ import Button from '../../components/Button/Button';
 import Heading from '../../components/Heading/Heading';
 import { login } from '../../store/user/actions';
 import { Input } from '../../components/Input/Input';
+import Modal from '../../components/Modal/Modal';
+import useToggle from '../../hooks/useToggle';
+import Register from '../Register/Register';
 
 const Login = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
+  const modal = useToggle();
 
   const [details, setDetails] = useState({
     phoneNumber: '',
@@ -29,34 +33,41 @@ const Login = () => {
   };
 
   return (
-    <Wrapper>
-      <Form onSubmit={handleSubmit}>
-        <Heading secondary>
-          <FaUserAlt /> Saytga kirish
+    <Form onSubmit={handleSubmit}>
+      <Heading secondary>
+        <FaUserAlt /> Saytga kirish
+      </Heading>
+      <Input
+        type="tel"
+        placeholder="Phone number"
+        name="phoneNumber"
+        value={details.phoneNumber}
+        onChange={handleChange}
+      />
+      <Input
+        type="password"
+        placeholder="Parol"
+        name="password"
+        value={details.password}
+        onChange={handleChange}
+      />
+      <Button>
+        Kirish <AiOutlineArrowRight />
+      </Button>
+      <Heading style={{ fontSize: '12px' }}>
+        Akkountingiz yo'qmi?
+        <Heading
+          secondary
+          style={{ fontSize: '12px', cursor: 'pointer' }}
+          onClick={modal.open}
+        >
+          Ro'yhatdan o'tish
         </Heading>
-        <Input
-          type="tel"
-          placeholder="Phone number"
-          name="phoneNumber"
-          value={details.phoneNumber}
-          onChange={handleChange}
-        />
-        <Input
-          type="password"
-          placeholder="Parol"
-          name="password"
-          value={details.password}
-          onChange={handleChange}
-        />
-        <Button>
-          Kirish <AiOutlineArrowRight />
-        </Button>
-        <Heading style={{ fontSize: '12px' }}>
-          Ro'yhatdan o'tmaganmisiz?
-          <Link to="/register">Ro'yhatdan o'tish</Link>
-        </Heading>
-      </Form>
-    </Wrapper>
+      </Heading>
+      <Modal isOpen={modal.isOpen} onClose={modal.close}>
+        <Register />
+      </Modal>
+    </Form>
   );
 };
 

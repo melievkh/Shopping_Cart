@@ -6,7 +6,6 @@ const Modal = ({ isOpen, onClose, children }) => {
     isOpen && (
       <ModalBackground onClick={onClose}>
         <ModalContainer onClick={(e) => e.stopPropagation()}>
-          <button onClick={onClose}>Close</button>
           {children}
         </ModalContainer>
       </ModalBackground>

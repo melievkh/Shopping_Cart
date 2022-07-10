@@ -1,24 +1,25 @@
 import React from 'react';
 import { Dropdown, DropdownContent, Wrapper } from './Navbar.style';
 import Basket from '../Basket/Basket';
-import { Link, useNavigate } from 'react-router-dom';
 import { useSelector } from 'react-redux';
-import { FiLogIn, FiSearch, FiUserPlus } from 'react-icons/fi';
+import { FiLogIn, FiSearch } from 'react-icons/fi';
 import { TbUserCircle } from 'react-icons/tb';
 import FlexBox from '../../components/Flexbox/FlexBox';
 import Button from '../../components/Button/Button';
 import Heading from '../../components/Heading/Heading';
 import { Input } from '../../components/Input/Input';
+import Modal from '../../components/Modal/Modal';
+import useToggle from '../../hooks/useToggle';
+import Login from '../../Pages/Login/Login';
 
 const Navbar = () => {
   let isLoggedIn = useSelector((state) => state.user.isLoggedIn);
   const username = useSelector((state) => state.user.username);
-  const navigate = useNavigate();
+  const modal = useToggle();
 
   const logout = () => {
     localStorage.removeItem('user');
     localStorage.removeItem('token');
-    navigate('/login');
   };
 
   return (
@@ -50,15 +51,13 @@ const Navbar = () => {
           <Heading>{username}</Heading>
         </FlexBox>
       ) : (
-        <FlexBox flexDirection="row" gap="20px">
-          <Link to="/login" style={{ color: 'grey' }}>
-            <FiLogIn /> Kirish
-          </Link>
-          <Link to="/register" style={{ color: 'grey' }}>
-            <FiUserPlus /> Ro'yhatdan o'tish
-          </Link>
-        </FlexBox>
+        <Button wd="160px" onClick={modal.open}>
+          <FiLogIn /> Kirish
+        </Button>
       )}
+      <Modal isOpen={modal.isOpen} onClose={modal.close}>
+        <Login />
+      </Modal>
     </Wrapper>
   );
 };

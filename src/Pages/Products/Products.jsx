@@ -55,7 +55,7 @@ const Products = () => {
                     wd="35px"
                     hg="30px"
                     onClick={() =>
-                      decrementProductByOne(product.id, product.price)
+                      dispatch(decrementProductByOne(product.id, product.price))
                     }
                   >
                     -

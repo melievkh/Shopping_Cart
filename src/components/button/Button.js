@@ -12,6 +12,7 @@ const Button = styled.button`
   display: flex;
   justify-content: ${({justifyContent})=> justifyContent || 'center'};
   align-items: center;
+  gap: 4px;
   border-radius: 8px;
   cursor: pointer;
 

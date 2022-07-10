@@ -14,10 +14,8 @@ export const ModalBackground = styled.div`
 `;
 
 export const ModalContainer = styled.div`
-  width: 400px;
-  height: 500px;
-  padding: 20px 40px;
-  background-color: white;
+  width: fit-content;
+  height: fit-content;
   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
   border-radius: 10px;
 `;
