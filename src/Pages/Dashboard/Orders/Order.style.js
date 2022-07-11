@@ -1,13 +1,13 @@
 import styled from 'styled-components';
 import colors from '../../../assets/color/colors';
-import FlexBox from '../../../components/Flexbox/FlexBox';
 
-export const Wrapper = styled(FlexBox)`
+export const Wrapper = styled.div`
   width: 1180px;
   height: 100%;
+  display: flex;
   flex-direction: column;
-  justify-content: flex-start;
-  background-color: ${colors.bgColor};
+  align-items: center;
+  justify-content: start;
 `;
 
 export const Table = styled.table`
@@ -22,7 +22,7 @@ export const Table = styled.table`
     font-weight: 700;
     font-size: 16px;
     border: 1px solid grey;
-    background-color: ${colors.white};
+    background-color: ${colors.bgColor};
   }
   td {
     padding: 2px 10px;

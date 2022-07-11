@@ -1,7 +1,7 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
-import { Admin } from '../../Pages/Dashboard/Admin';
 import Main from '../../App';
+import Orders from '../../Pages/Dashboard/Orders/Orders';
 // import { useNavigate } from 'react-router-dom';
 // import { useEffect } from 'react';
 
@@ -14,7 +14,7 @@ const PrivateRoute = () => {
   //   navigate('/');
   // }, [isLoggedIn]);
 
-  return userRole === 'admin' ? <Admin /> : <Main />;
+  return userRole === 'admin' ? <Orders /> : <Main />;
 };
 
 export default PrivateRoute;

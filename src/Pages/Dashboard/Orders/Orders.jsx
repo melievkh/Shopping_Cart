@@ -21,7 +21,9 @@ const Orders = () => {
 
   return (
     <Wrapper>
-      <Heading margin="30px">Buyurtmalar ro'yxati</Heading>
+      <Heading size="md" margin="30px">
+        Buyurtmalar ro'yxati
+      </Heading>
       <Table>
         <thead>
           <tr>

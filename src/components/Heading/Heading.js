@@ -3,10 +3,10 @@ import colors from '../../assets/color/colors';
 
 const headingSize = {
   sm: css`
-    font-size: 20px;
+    font-size: 18px;
   `,
   md: css`
-    font-size: 25px;
+    font-size: 22px;
   `,
   lg: css`
     font-size: 30px;

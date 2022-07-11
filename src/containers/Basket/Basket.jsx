@@ -62,10 +62,7 @@ const Basket = () => {
                 product.added && (
                   <Cards key={product.id}>
                     <Heading align="start">{product.name}</Heading>
-                    <ButtonsContainer
-                      justifyContent="space-evenly"
-                      flexDirection="row"
-                    >
+                    <ButtonsContainer row justifyContent="space-evenly">
                       <Button
                         wd="35px"
                         hg="30px"

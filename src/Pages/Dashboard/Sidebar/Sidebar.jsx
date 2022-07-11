@@ -3,11 +3,15 @@ import { BsBasket } from 'react-icons/bs';
 import { AiOutlineDoubleLeft, AiOutlinePlusCircle } from 'react-icons/ai';
 import { MdProductionQuantityLimits } from 'react-icons/md';
 import { SidebarToggler, StyledLink, Wrapper } from './Sidebar.style';
-import colors from '../../../assets/color/colors';
 import Heading from '../../../components/Heading/Heading';
+import useToggle from '../../../hooks/useToggle';
+import Modal from '../../../components/Modal/Modal';
+import FlexBox from '../../../components/Flexbox/FlexBox';
+import CreateProducts from '../../../forms/CreateProducts/CreateProducts'
 
 const Sidebar = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const modal = useToggle();
 
   return (
     <Wrapper>
@@ -15,38 +19,35 @@ const Sidebar = () => {
         <AiOutlineDoubleLeft />
       </SidebarToggler>
       {isOpen ? (
-        <Heading margin="10px" color={colors.white}>
+        <Heading size="md" margin="10px">
           Admin
         </Heading>
       ) : (
-        <Heading margin="10px" color={colors.white}>
+        <Heading secondary size="md">
           A
         </Heading>
       )}
       <StyledLink to="/admin">
         <BsBasket />
-        {isOpen && (
-          <Heading color={colors.white} style={{ fontSize: '18px' }}>
-            Buyurtmalar
-          </Heading>
-        )}
+        {isOpen && <Heading secondary>Buyurtmalar</Heading>}
       </StyledLink>
-      <StyledLink to="/edit-products">
+      <StyledLink to="/admin/edit-products">
         <MdProductionQuantityLimits />
-        {isOpen && (
-          <Heading color={colors.white} style={{ fontSize: '18px' }}>
-            Mahsulotlar
-          </Heading>
-        )}
+        {isOpen && <Heading secondary>Mahsulotlar</Heading>}
       </StyledLink>
-      <StyledLink to="/create-products">
+      <FlexBox
+        row
+        justifyContent="flex-start"
+        gap="8px"
+        style={{ cursor: 'pointer' }}
+        onClick={modal.open}
+      >
         <AiOutlinePlusCircle />
-        {isOpen && (
-          <Heading color={colors.white} style={{ fontSize: '18px' }}>
-            Qo'shish
-          </Heading>
-        )}
-      </StyledLink>
+        {isOpen && <Heading secondary>Qo'shish</Heading>}
+      </FlexBox>
+      <Modal isOpen={modal.isOpen} onClose={modal.close}>
+        <CreateProducts />
+      </Modal>
     </Wrapper>
   );
 };

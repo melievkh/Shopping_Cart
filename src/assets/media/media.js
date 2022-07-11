@@ -1,1 +1,3 @@
-export default const media = `@media (max-width: 500px)`;
+const media = `@media (max-width: 500px)`;
+
+export default media;

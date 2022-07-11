@@ -5,7 +5,7 @@ import colors from '../../../assets/color/colors';
 export const Wrapper = styled.div`
   width: fit-content;
   height: 100%;
-  background-color: ${colors.white};
+  background-color: ${colors.bgColor};
   position: relative;
   box-sizing: border-box;
   padding: 0 20px;
@@ -15,7 +15,8 @@ export const Wrapper = styled.div`
   justify-content: start;
   align-items: flex-start;
   box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
-  svg{
+  svg {
+    font-size: 26px;
     color: blue;
   }
 `;
@@ -44,9 +45,5 @@ export const StyledLink = styled(Link)`
   gap: 10px;
   justify-content: start;
   align-items: center;
-  color: white;
   text-decoration: none;
-  svg {
-    font-size: 26px;
-  }
 `;

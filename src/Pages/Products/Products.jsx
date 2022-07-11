@@ -27,7 +27,7 @@ const Products = () => {
             <Heading size="md" align="start">
               {product.name}
             </Heading>
-            <FlexBox flexDirection="row" justifyContent="space-between">
+            <FlexBox row justifyContent="space-between">
               <Heading>{product.price} so'm</Heading>
               {product.amount === 0 ? (
                 <Button
@@ -40,7 +40,7 @@ const Products = () => {
                   Qo'shish
                 </Button>
               ) : (
-                <FlexBox flexDirection="row" gap="4px">
+                <FlexBox row gap="4px">
                   <Button
                     wd="35px"
                     hg="30px"

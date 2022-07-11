@@ -24,7 +24,7 @@ const Navbar = () => {
   return (
     <Wrapper>
       <Basket />
-      <FlexBox wd="fit-content" flexDirection="row">
+      <FlexBox wd="fit-content" row>
         <Input
           wd="400px"
           style={{ borderRadius: '8px 0 0 8px' }}
@@ -40,7 +40,7 @@ const Navbar = () => {
         </Button>
       </FlexBox>
       {isLoggedIn ? (
-        <FlexBox flexDirection="row" gap="10px">
+        <FlexBox row gap="10px">
           <Dropdown>
             <TbUserCircle style={{ fontSize: '30px', cursor: 'pointer' }} />
             <DropdownContent>
@@ -50,7 +50,7 @@ const Navbar = () => {
           <Heading>{username}</Heading>
         </FlexBox>
       ) : (
-        <FlexBox flexDirection="row" gap="20px">
+        <FlexBox row gap="20px">
           <Link to="/login" style={{ textDecoration: 'none' }}>
             <Button>
               <FiLogIn /> Kirish
