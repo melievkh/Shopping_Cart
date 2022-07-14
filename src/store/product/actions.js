@@ -16,12 +16,3 @@ export const incrementProductByOne = (product, price) => (dispatch) => {
 export const decrementProductByOne = (product, price) => (dispatch) => {
   dispatch({ type: 'DECREMENT', payload: { product, price } });
 };
-
-export const editTodo = () => (dispatch) => {
-  productApi
-    .editProducts()
-    .then((res) => {
-      dispatch({ type: 'EDIT_TODO', payload: res.data });
-    })
-    .catch((err) => console.log(err.response.data));
-};

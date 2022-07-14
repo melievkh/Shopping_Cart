@@ -5,7 +5,7 @@ const productApi = {
 
   getAllProducts: () => api.get('/products'),
 
-  editProducts: () => api.put('/products')
+  editProduct: (id, data) => api.put(`/products/${id}`, data),
 };
 
 export default productApi;

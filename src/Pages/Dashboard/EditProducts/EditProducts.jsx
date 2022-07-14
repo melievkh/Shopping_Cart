@@ -7,16 +7,22 @@ import { BiEditAlt } from 'react-icons/bi';
 import Modal from '../../../components/Modal/Modal';
 import useToggle from '../../../hooks/useToggle';
 import Edit from '../../../modal/Edit/Edit';
+import { useState } from 'react';
 
 const Products = () => {
   const dispatch = useDispatch();
   const modal = useToggle();
+  const products = useSelector((state) => state.product.products);
+  const [product, setProduct] = useState({});
 
   useEffect(() => {
     dispatch(getAllProducts());
   }, []);
 
-  const products = useSelector((state) => state.product.products);
+  const handleEdit = (prod) => {
+    setProduct(prod);
+    modal.open();
+  };
 
   return (
     <Wrapper gap="8px">
@@ -39,7 +45,7 @@ const Products = () => {
               <td>{product.price}</td>
               <td>{product.description}</td>
               <td>
-                <button onClick={modal.open}>
+                <button onClick={() => handleEdit(product)}>
                   <BiEditAlt />
                 </button>
               </td>
@@ -48,7 +54,7 @@ const Products = () => {
         </tbody>
       </Table>
       <Modal isOpen={modal.isOpen} onClose={modal.close}>
-        <Edit />
+        <Edit product={product} modal={modal} />
       </Modal>
     </Wrapper>
   );

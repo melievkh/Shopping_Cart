@@ -1,53 +1,69 @@
-import React, { useEffect } from 'react';
+import React, { useState } from 'react';
 import { FaEdit } from 'react-icons/fa';
 import Heading from '../../components/Heading/Heading';
 import Button from '../../components/Button/Button';
 import { Input } from '../../components/Input/Input';
 import FlexBox from '../../components/Flexbox/FlexBox';
 import { Form } from './Edit.style';
-import { useDispatch, useSelector } from 'react-redux';
-import { editTodo } from '../../store/product/actions';
+import { useDispatch } from 'react-redux';
+import { getAllProducts } from '../../store/product/actions';
+import productApi from '../../api/productApi';
 
-const Edit = () => {
+const Edit = ({ product, modal }) => {
+  const [values, setValues] = useState({});
   const dispatch = useDispatch();
-  const products = useSelector((state) => state.product.products);
-
-  useEffect(() => {
-    dispatch(editTodo());
-  }, []);
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    dispatch(editTodo());
+    productApi.editProduct(product.id, values).then((res) => {
+      dispatch(getAllProducts());
+      modal.close();
+    });
+  };
+
+  const handleChange = (e) => {
+    e.preventDefault();
+    setValues({
+      ...values,
+      [e.target.name]: e.target.value,
+    });
   };
 
   return (
-    <div>
-      {products.map((product) => (
-        <Form key={product.id} onSubmit={handleSubmit}>
-          <FlexBox row gap="4px">
-            <FaEdit /> <Heading>Tahrirlash</Heading>
-          </FlexBox>
-          <Input type="text" placeholder="Nomi" defaultValue={product.name} />
-          <Input
-            type="number"
-            placeholder="Narxi"
-            defaultValue={product.price}
-          />
-          <Input
-            type="text"
-            placeholder="Surat uchun link"
-            defaultValue={product.picture}
-          />
-          <textarea
-            type="text"
-            placeholder="Tasvir"
-            defaultValue={product.description}
-          />
-          <Button type="submit">Tahrirlash</Button>
-        </Form>
-      ))}
-    </div>
+    <Form key={product.id} onSubmit={handleSubmit}>
+      <FlexBox row gap="4px">
+        <FaEdit /> <Heading>Tahrirlash</Heading>
+      </FlexBox>
+      <Input
+        type="text"
+        placeholder="Nomi"
+        name="name"
+        defaultValue={product.name}
+        onChange={handleChange}
+      />
+      <Input
+        type="number"
+        placeholder="Narxi"
+        name="price"
+        defaultValue={product.price}
+        onChange={handleChange}
+      />
+      <Input
+        type="text"
+        placeholder="Surat uchun link"
+        name="picture"
+        defaultValue={product.picture}
+        onChange={handleChange}
+      />
+      <textarea
+        type="text"
+        placeholder="Tasvir"
+        name="description"
+        defaultValue={product.description}
+        onChange={handleChange}
+      />
+      <Button type="submit">Tahrirlash</Button>
+    </Form>
   );
 };
 
