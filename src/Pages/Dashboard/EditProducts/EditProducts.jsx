@@ -1,14 +1,12 @@
 import React, { useEffect } from 'react';
-import { AiOutlinePlusCircle } from 'react-icons/ai';
-import Button from '../../../components/Button/Button';
-import FlexBox from '../../../components/Flexbox/FlexBox';
 import Heading from '../../../components/Heading/Heading';
 import { getAllProducts } from '../../../store/product/actions';
-import { Table } from './EditProducts.style';
+import { Table, Wrapper } from './EditProducts.style';
 import { useSelector, useDispatch } from 'react-redux';
+import { BiEditAlt } from 'react-icons/bi';
 import Modal from '../../../components/Modal/Modal';
 import useToggle from '../../../hooks/useToggle';
-import CreateProducts from '../../../modal/CreateProducts/CreateProducts';
+import Edit from '../../../modal/Edit/Edit';
 
 const Products = () => {
   const dispatch = useDispatch();
@@ -21,7 +19,7 @@ const Products = () => {
   const products = useSelector((state) => state.product.products);
 
   return (
-    <FlexBox wd="900px" gap="8px">
+    <Wrapper gap="8px">
       <Heading margin="30px">Mahsulotlar ro'yxati</Heading>
       <Table>
         <thead>
@@ -41,20 +39,18 @@ const Products = () => {
               <td>{product.price}</td>
               <td>{product.description}</td>
               <td>
-                <button onClick={modal.open}>Edit</button>
+                <button onClick={modal.open}>
+                  <BiEditAlt />
+                </button>
               </td>
             </tr>
           ))}
         </tbody>
       </Table>
-      <Button wd="190px" style={{ marginLeft: '620px' }} onClick={modal.open}>
-        Mahsulot qo'shish
-        <AiOutlinePlusCircle style={{ fontSize: '25px' }} />
-      </Button>
       <Modal isOpen={modal.isOpen} onClose={modal.close}>
-        <CreateProducts />
+        <Edit />
       </Modal>
-    </FlexBox>
+    </Wrapper>
   );
 };
 

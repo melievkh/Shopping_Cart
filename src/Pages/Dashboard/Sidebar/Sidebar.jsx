@@ -7,7 +7,7 @@ import Heading from '../../../components/Heading/Heading';
 import useToggle from '../../../hooks/useToggle';
 import Modal from '../../../components/Modal/Modal';
 import FlexBox from '../../../components/Flexbox/FlexBox';
-import CreateProducts from '../../../forms/CreateProducts/CreateProducts'
+import CreateProducts from '../../../modal/CreateProducts/CreateProducts';
 
 const Sidebar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -19,7 +19,7 @@ const Sidebar = () => {
         <AiOutlineDoubleLeft />
       </SidebarToggler>
       {isOpen ? (
-        <Heading size="md" margin="10px">
+        <Heading margin="10px" size="md">
           Admin
         </Heading>
       ) : (

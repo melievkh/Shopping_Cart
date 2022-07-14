@@ -1,9 +1,11 @@
 const colors = {
-  black: '#171717',
-  white: '#fff',
-  grey: '#C4C5C9',
-  blue: '#0E1B78',
-  bgColor: '#e4e6f5',
+  heading: '#4e4e4f',
+  text: '#4e4e4f',
+  blue: '#5b6aeb',
+  button: '#d3d6e8',
+  bgColor: '#d3d6e8',
+  avatar: '#044547',
+  err: '#f72a2a',
 };
 
 export default colors;

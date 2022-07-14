@@ -1,3 +1,3 @@
-const media = `@media (max-width: 500px)`;
+const mobile = `@media (max-width: 550px)`;
 
-export default media;
+export default mobile;

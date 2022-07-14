@@ -8,6 +8,7 @@ import Button from '../../components/Button/Button';
 import Heading from '../../components/Heading/Heading';
 import { login } from '../../store/user/actions';
 import { Input } from '../../components/Input/Input';
+import Text from '../../components/Text/Text';
 
 const Login = () => {
   const dispatch = useDispatch();
@@ -40,6 +41,7 @@ const Login = () => {
           name="phoneNumber"
           value={details.phoneNumber}
           onChange={handleChange}
+          required
         />
         <Input
           type="password"
@@ -47,14 +49,15 @@ const Login = () => {
           name="password"
           value={details.password}
           onChange={handleChange}
+          required
         />
         <Button>
           Kirish <AiOutlineArrowRight />
         </Button>
-        <Heading style={{ fontSize: '12px' }}>
+        <Text size="sm">
           Ro'yhatdan o'tmaganmisiz?
-          <Link to="/register">Ro'yhatdan o'tish</Link>
-        </Heading>
+          <Link to="/register"> Ro'yhatdan o'tish</Link>
+        </Text>
       </Form>
     </Wrapper>
   );

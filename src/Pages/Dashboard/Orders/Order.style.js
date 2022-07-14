@@ -2,12 +2,11 @@ import styled from 'styled-components';
 import colors from '../../../assets/color/colors';
 
 export const Wrapper = styled.div`
-  width: 1180px;
-  height: 100%;
+  width: 100%;
+  height: fit-content;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: start;
 `;
 
 export const Table = styled.table`

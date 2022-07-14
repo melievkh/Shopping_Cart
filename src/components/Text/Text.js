@@ -2,33 +2,33 @@ import styled, { css } from 'styled-components';
 import colors from '../../assets/color/colors';
 import mobile from '../../assets/media/media';
 
-const headingSize = {
+const textSize = {
   sm: css`
-    font-size: 16px;
+    font-size: 12px;
     ${mobile} {
-      font-size: 12px;
+      font-size: 8px;
     }
   `,
   md: css`
-    font-size: 18px;
+    font-size: 14px;
     ${mobile} {
-      font-size: 12px;
+      font-size: 10px;
     }
   `,
   lg: css`
-    font-size: 22px;
+    font-size: 16px;
     ${mobile} {
-      font-size: 18;
+      font-size: 14px;
     }
   `,
 };
 
-const Heading = styled.h1`
-  ${({ size }) => headingSize[size || 'md']};
+const Text = styled.h1`
+  ${({ size }) => textSize[size || 'md']};
   color: ${({ secondary }) => (secondary ? colors.blue : colors.heading)};
   text-align: ${({ align }) => align || 'center'};
   margin: ${({ margin }) => margin || 0};
   font-family: monospace;
 `;
 
-export default Heading;
+export default Text;

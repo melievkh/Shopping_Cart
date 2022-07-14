@@ -6,6 +6,7 @@ import { FiUserPlus } from 'react-icons/fi';
 import { Link, useNavigate } from 'react-router-dom';
 import authApi from '../../api/authApi';
 import { Input } from '../../components/Input/Input';
+import Text from '../../components/Text/Text';
 
 const Register = () => {
   const navigate = useNavigate();
@@ -69,9 +70,9 @@ const Register = () => {
           onChange={handleChange}
         />
         <Button type="submit">Akkount yaratish</Button>
-        <Heading style={{ fontSize: '12px' }}>
+        <Text size='sm'>
           Akkountgiz allaqachon mavjudmi? <Link to="/login">Kirish</Link>
-        </Heading>
+        </Text>
       </Form>
     </Wrapper>
   );

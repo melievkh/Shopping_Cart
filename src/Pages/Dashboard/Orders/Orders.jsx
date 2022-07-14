@@ -14,6 +14,7 @@ const getOrderAsString = (products) => {
 const Orders = () => {
   const dispatch = useDispatch();
   const orders = useSelector((state) => state.orders);
+  console.log(orders)
 
   useEffect(() => {
     dispatch(getAllOrders());

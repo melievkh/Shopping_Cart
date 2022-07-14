@@ -47,6 +47,19 @@ const productReducer = (state = initialState, action) => {
         }),
         sum: state.sum - action.payload.price,
       };
+    case 'EDIT_TODO':
+      return {
+        products: state.products.map((product) => {
+          return {
+            ...product,
+            id: product._id,
+            name: product.name,
+            price: product.price,
+            picture: product.picture,
+            description: product.description,
+          };
+        }),
+      };
 
     default:
       return state;

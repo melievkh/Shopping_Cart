@@ -17,10 +17,14 @@ export const Form = styled.form`
     height: 80px;
     outline: none;
     border-radius: 8px;
-    border: none;
-    box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 0px 0px,
-      rgba(60, 64, 67, 0.15) 0px 1px 1px 2px;
+    border: 1px solid grey;
     text-indent: 10px;
     resize: none;
+    &:focus {
+      border: 1px solid #5ca5ed;
+    }
+  }
+  svg {
+    font-size: 24px;
   }
 `;

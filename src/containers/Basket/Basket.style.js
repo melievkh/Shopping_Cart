@@ -1,14 +1,13 @@
 import styled from 'styled-components';
-import colors from '../../assets/color/colors';
+import mobile from '../../assets/media/media';
 import FlexBox from '../../components/Flexbox/FlexBox';
+import Heading from '../../components/Heading/Heading';
 
-export const Wrapper = styled(FlexBox)`
+export const Wrapper = styled.div`
   width: 30%;
-  hr {
-    height: 1px;
-    background-color: #d1d1d1;
-    border: none;
-  }
+  display: flex;
+  align-items: center;
+  justify-content: center;
 `;
 
 export const DropdownContent = styled.div`
@@ -20,10 +19,13 @@ export const DropdownContent = styled.div`
   align-items: center;
   position: absolute;
   border-radius: 8px;
-  background-color: ${colors.white};
+  background-color: white;
   box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
   z-index: 1;
   padding: 10px 20px;
+  ${mobile} {
+    width: 220px;
+  }
 `;
 
 export const Dropdown = styled.div`
@@ -47,18 +49,53 @@ export const ProductsList = styled.div`
 export const ButtonsContainer = styled(FlexBox)`
   width: 100%;
   height: 50%;
+  gap: 8px;
 `;
 
 export const Cards = styled.div`
   height: 70px;
   margin-top: 8px;
   display: flex;
-  flex-direction: column;
-  gap: 4px;
+  flex-direction: row;
+  gap: 8px;
   box-sizing: border-box;
+`;
+export const CardMedia = styled.img`
+  width: 60px;
+  height: 60px;
 `;
 export const OrderButton = styled.div`
   height: 20%;
   display: flex;
   justify-content: space-evenly;
+`;
+
+export const AmountDisplayer = styled.p`
+  width: 16px;
+  height: 16px;
+  position: absolute;
+  top: -6px;
+  left: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 14px;
+  background-color: red;
+  color: white;
+  border-radius: 100%;
+`;
+
+export const Logo = styled(Heading)`
+  font-size: 22px;
+  ${mobile} {
+    display: none;
+  }
+`;
+
+export const BasketWrapper = styled.div`
+  width: fit-content;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 8px;
 `;

@@ -10,4 +10,7 @@ export const Input = styled.input`
   &::-webkit-inner-spin-button {
     -webkit-appearance: none;
   }
+  &:focus {
+    border: 1px solid #5ca5ed;
+  }
 `;

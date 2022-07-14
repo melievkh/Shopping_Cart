@@ -7,6 +7,7 @@ import Register from './Pages/Register/Register';
 import EditProducts from './Pages/Dashboard/EditProducts/EditProducts';
 import AdminRoutes from './components/PrivateRoute/AdminRoutes';
 import Orders from './Pages/Dashboard/Orders/Orders';
+import { useSelector } from 'react-redux';
 
 function Home() {
   return (
@@ -18,16 +19,18 @@ function Home() {
 }
 
 function App() {
+  const userRole = useSelector((state) => state.user.role);
   return (
     <Routes>
       <Route path="/" element={<Home />} />
       <Route path="/register" element={<Register />} />
       <Route path="/login" element={<Login />} />
-
-      <Route path="/admin" element={<AdminRoutes />}>
-        <Route index element={<Orders />} />
-        <Route path="edit-products" element={<EditProducts />} />
-      </Route>
+      {userRole === 'admin' && (
+        <Route path="/admin" element={<AdminRoutes />}>
+          <Route index element={<Orders />} />
+          <Route path="edit-products" element={<EditProducts />} />
+        </Route>
+      )}
     </Routes>
   );
 }

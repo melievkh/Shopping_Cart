@@ -7,6 +7,7 @@ import {
   incrementProductByOne,
 } from '../../store/product/actions';
 import Heading from '../../components/Heading/Heading';
+import Text from '../../components/Text/Text';
 import FlexBox from '../../components/Flexbox/FlexBox';
 import Button from '../../components/Button/Button';
 
@@ -27,12 +28,12 @@ const Products = () => {
             <Heading size="md" align="start">
               {product.name}
             </Heading>
+            <Text align="start">{product.description}</Text>
             <FlexBox row justifyContent="space-between">
               <Heading>{product.price} so'm</Heading>
               {product.amount === 0 ? (
                 <Button
                   wd="120px"
-                  hg="35px"
                   onClick={() =>
                     dispatch(incrementProductByOne(product.id, product.price))
                   }
@@ -43,22 +44,20 @@ const Products = () => {
                 <FlexBox row gap="4px">
                   <Button
                     wd="35px"
-                    hg="30px"
-                    onClick={() =>
-                      dispatch(incrementProductByOne(product.id, product.price))
-                    }
-                  >
-                    +
-                  </Button>
-                  <p>{product.amount}</p>
-                  <Button
-                    wd="35px"
-                    hg="30px"
                     onClick={() =>
                       dispatch(decrementProductByOne(product.id, product.price))
                     }
                   >
                     -
+                  </Button>
+                  <Text>{product.amount}</Text>
+                  <Button
+                    wd="35px"
+                    onClick={() =>
+                      dispatch(incrementProductByOne(product.id, product.price))
+                    }
+                  >
+                    +
                   </Button>
                 </FlexBox>
               )}

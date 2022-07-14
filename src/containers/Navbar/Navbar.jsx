@@ -1,5 +1,11 @@
 import React from 'react';
-import { Dropdown, DropdownContent, Wrapper } from './Navbar.style';
+import {
+  Dropdown,
+  DropdownContent,
+  RegisterButton,
+  SearchInput,
+  Wrapper,
+} from './Navbar.style';
 import Basket from '../Basket/Basket';
 import { Link, useNavigate } from 'react-router-dom';
 import { useSelector } from 'react-redux';
@@ -8,7 +14,6 @@ import { TbUserCircle } from 'react-icons/tb';
 import FlexBox from '../../components/Flexbox/FlexBox';
 import Button from '../../components/Button/Button';
 import Heading from '../../components/Heading/Heading';
-import { Input } from '../../components/Input/Input';
 
 const Navbar = () => {
   let isLoggedIn = useSelector((state) => state.user.isLoggedIn);
@@ -25,24 +30,25 @@ const Navbar = () => {
     <Wrapper>
       <Basket />
       <FlexBox wd="fit-content" row>
-        <Input
+        <SearchInput
           wd="400px"
           style={{ borderRadius: '8px 0 0 8px' }}
           type="search"
           placeholder="qidirish..."
         />
-        <Button
-          wd="30px"
-          border="1px solid grey"
-          style={{ borderRadius: '0 8px 8px 0' }}
-        >
+        <Button wd="30px" style={{ borderRadius: '0 8px 8px 0' }}>
           <FiSearch />
         </Button>
       </FlexBox>
       {isLoggedIn ? (
         <FlexBox row gap="10px">
           <Dropdown>
-            <TbUserCircle style={{ fontSize: '30px', cursor: 'pointer' }} />
+            <TbUserCircle
+              style={{
+                fontSize: '30px',
+                cursor: 'pointer',
+              }}
+            />
             <DropdownContent>
               <Button onClick={() => logout()}>chiqish</Button>
             </DropdownContent>
@@ -57,9 +63,9 @@ const Navbar = () => {
             </Button>
           </Link>
           <Link to="/register" style={{ textDecoration: 'none' }}>
-            <Button>
+            <RegisterButton>
               <FiUserPlus /> Ro'yhatdan o'tish
-            </Button>
+            </RegisterButton>
           </Link>
         </FlexBox>
       )}
