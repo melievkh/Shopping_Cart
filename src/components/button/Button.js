@@ -19,7 +19,7 @@ const Button = styled.button`
   cursor: pointer;
 
   &:hover {
-    background-color: ${({ bgColor }) => bgColor || '#8f91cc'};
+    background-color: ${({ bgColor }) => bgColor || '#dfe7f5'};
     transition: 0.3s;
   }
   ${mobile} {

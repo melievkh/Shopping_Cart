@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { Card, CardDetails, CardMedia, Wrapper } from './Products.style';
+import { Card, CardDetails, CardMedia, CardsContainer, Wrapper } from './Products.style';
 import {
   decrementProductByOne,
   getAllProducts,
@@ -21,50 +21,56 @@ const Products = () => {
 
   return (
     <Wrapper>
-      {products?.map((product) => (
-        <Card key={product.id}>
-          <CardMedia src={product.picture} alt="Loading..." />
-          <CardDetails>
-            <Heading size="md" align="start">
-              {product.name}
-            </Heading>
-            <Text align="start">{product.description}</Text>
-            <FlexBox row justifyContent="space-between">
-              <Heading>{product.price} so'm</Heading>
-              {product.amount === 0 ? (
-                <Button
-                  wd="120px"
-                  onClick={() =>
-                    dispatch(incrementProductByOne(product.id, product.price))
-                  }
-                >
-                  Qo'shish
-                </Button>
-              ) : (
-                <FlexBox row gap="4px">
+      <CardsContainer>
+        {products?.map((product) => (
+          <Card key={product.id}>
+            <CardMedia src={product.picture} alt="Loading..." />
+            <CardDetails>
+              <Heading size="md" align="start">
+                {product.name}
+              </Heading>
+              <Text align="start">{product.description}</Text>
+              <FlexBox row justifyContent="space-between">
+                <Heading>{product.price} so'm</Heading>
+                {product.amount === 0 ? (
                   <Button
-                    wd="35px"
-                    onClick={() =>
-                      dispatch(decrementProductByOne(product.id, product.price))
-                    }
-                  >
-                    -
-                  </Button>
-                  <Text>{product.amount}</Text>
-                  <Button
-                    wd="35px"
+                    wd="120px"
                     onClick={() =>
                       dispatch(incrementProductByOne(product.id, product.price))
                     }
                   >
-                    +
+                    Qo'shish
                   </Button>
-                </FlexBox>
-              )}
-            </FlexBox>
-          </CardDetails>
-        </Card>
-      ))}
+                ) : (
+                  <FlexBox row gap="4px">
+                    <Button
+                      wd="35px"
+                      onClick={() =>
+                        dispatch(
+                          decrementProductByOne(product.id, product.price)
+                        )
+                      }
+                    >
+                      -
+                    </Button>
+                    <Text>{product.amount}</Text>
+                    <Button
+                      wd="35px"
+                      onClick={() =>
+                        dispatch(
+                          incrementProductByOne(product.id, product.price)
+                        )
+                      }
+                    >
+                      +
+                    </Button>
+                  </FlexBox>
+                )}
+              </FlexBox>
+            </CardDetails>
+          </Card>
+        ))}
+      </CardsContainer>
     </Wrapper>
   );
 };

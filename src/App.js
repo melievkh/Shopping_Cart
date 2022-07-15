@@ -8,12 +8,14 @@ import EditProducts from './Pages/Dashboard/EditProducts/EditProducts';
 import AdminRoutes from './components/PrivateRoute/AdminRoutes';
 import Orders from './Pages/Dashboard/Orders/Orders';
 import { useSelector } from 'react-redux';
+import Footer from './containers/Footer/Footer';
 
 function Home() {
   return (
     <>
       <Navbar />
       <Products />
+      <Footer/>
     </>
   );
 }

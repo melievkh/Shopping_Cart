@@ -16,6 +16,7 @@ import {
   Cards,
   Dropdown,
   DropdownContent,
+  Image,
   Logo,
   OrderButton,
   ProductsList,
@@ -70,7 +71,7 @@ const Basket = () => {
       <Dropdown>
         <BasketWrapper>
           <FiShoppingCart /> <Logo>Savatcha</Logo>
-          <AmountDisplayer>{amount}</AmountDisplayer>
+          {amount === 0 ? '' : <AmountDisplayer>{amount}</AmountDisplayer>}
         </BasketWrapper>
         <DropdownContent>
           <ProductsList>
@@ -114,7 +115,10 @@ const Basket = () => {
           </ProductsList>
           <OrderButton>
             {sum === 0 ? (
-              <Heading>Mahsulotni tanlang!</Heading>
+              <FlexBox>
+                <Image src="https://st3.depositphotos.com/1784264/12588/i/950/depositphotos_125880634-stock-photo-man-with-a-magnifying-glass.jpg" />
+                <Heading>Savatcha hozircha bo'sh!</Heading>
+              </FlexBox>
             ) : (
               <Button justifyContent="space-evenly" onClick={createOrder}>
                 Buyurtma <Heading>{sum} so'm</Heading>

@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-export const Input = styled.input`
+const Input = styled.input`
   width: ${({ wd }) => wd || '100%'};
   height: 35px;
   outline: none;
@@ -14,3 +14,5 @@ export const Input = styled.input`
     border: 1px solid #5ca5ed;
   }
 `;
+
+export default Input;

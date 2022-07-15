@@ -5,7 +5,7 @@ import { Form, Wrapper } from './Register.style';
 import { FiUserPlus } from 'react-icons/fi';
 import { Link, useNavigate } from 'react-router-dom';
 import authApi from '../../api/authApi';
-import { Input } from '../../components/Input/Input';
+import Input from '../../components/Input/Input';
 import Text from '../../components/Text/Text';
 
 const Register = () => {
@@ -70,7 +70,7 @@ const Register = () => {
           onChange={handleChange}
         />
         <Button type="submit">Akkount yaratish</Button>
-        <Text size='sm'>
+        <Text size="sm">
           Akkountgiz allaqachon mavjudmi? <Link to="/login">Kirish</Link>
         </Text>
       </Form>

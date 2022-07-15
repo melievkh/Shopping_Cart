@@ -41,6 +41,7 @@ export const Dropdown = styled.div`
 
 export const ProductsList = styled.div`
   height: 80%;
+  max-height: 300px;
   overflow-x: scroll;
   &::-webkit-scrollbar {
     width: 10px;
@@ -99,3 +100,11 @@ export const BasketWrapper = styled.div`
   align-items: center;
   gap: 8px;
 `;
+
+export const Image = styled.img`
+   width: 100%;
+   height: 200px;
+   background-position: center;
+   background-size: cover;
+   background-repeat: no-repeat;
+`

@@ -6,17 +6,25 @@ export const Wrapper = styled.div`
   width: 100%;
   height: fit-content;
   display: flex;
-  flex-wrap: wrap;
-  flex-direction: row;
+  flex-direction: column;
+  align-items: center;
   background-color: ${colors.bgColor};
-  box-sizing: border-box;
-  padding: 40px 220px;
-  gap: 40px;
-  ${mobile}{
+  ${mobile} {
     padding: 10px;
     gap: 10px;
     justify-content: space-evenly;
   }
+`;
+
+export const CardsContainer = styled.div`
+  width: 90%;
+  height: fit-content;
+  box-sizing: border-box;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  padding: 60px 160px;
+  gap: 30px;
 `;
 
 export const Card = styled.div`

@@ -7,7 +7,7 @@ import { Form, Wrapper } from './Login.style';
 import Button from '../../components/Button/Button';
 import Heading from '../../components/Heading/Heading';
 import { login } from '../../store/user/actions';
-import { Input } from '../../components/Input/Input';
+import Input from '../../components/Input/Input';
 import Text from '../../components/Text/Text';
 
 const Login = () => {

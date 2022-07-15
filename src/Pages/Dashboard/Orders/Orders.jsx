@@ -14,6 +14,7 @@ const getOrderAsString = (products) => {
 const Orders = () => {
   const dispatch = useDispatch();
   const orders = useSelector((state) => state.orders);
+  console.log(orders);
 
   useEffect(() => {
     dispatch(getAllOrders());
@@ -29,6 +30,7 @@ const Orders = () => {
           <tr>
             <th>№</th>
             <th>Ismi</th>
+            <th>Telefon</th>
             <th>Narxi</th>
             <th>Vaqti</th>
             <th>Ma'lumotlar</th>
@@ -39,6 +41,7 @@ const Orders = () => {
             <tr key={order._id}>
               <td>{index + 1}</td>
               <td>{order.user.username}</td>
+              <td>{order.user.phoneNumber}</td>
               <td>{order.totalPrice}</td>
               <td>{getHour(order.createdAt)}</td>
               <td>{getOrderAsString(order.products)}</td>

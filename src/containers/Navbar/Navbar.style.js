@@ -2,7 +2,7 @@ import styled from 'styled-components';
 import colors from '../../assets/color/colors';
 import mobile from '../../assets/media/media';
 import Button from '../../components/Button/Button';
-import { Input } from '../../components/Input/Input';
+import Input from '../../components/Input/Input';
 
 export const Wrapper = styled.div`
   width: 100%;
@@ -19,7 +19,7 @@ export const Wrapper = styled.div`
   svg {
     color: ${colors.avatar};
   }
-  ${mobile}{
+  ${mobile} {
     width: auto;
   }
 `;
@@ -51,14 +51,17 @@ export const SearchInput = styled(Input)`
   &:focus {
     border: 1px solid #5ca5ed;
   }
-  ${mobile}{
+  ${mobile} {
     width: 160px;
     height: 22px;
   }
 `;
 
 export const RegisterButton = styled(Button)`
-   ${mobile}{
+  &:hover {
+    background-color: ${({ bgColor }) => bgColor || '#dfe7f5'};
+  }
+  ${mobile} {
     display: none;
-   }
-`
+  }
+`;

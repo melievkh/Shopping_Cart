@@ -11,7 +11,13 @@ import CreateProducts from '../../../modal/CreateProducts/CreateProducts';
 
 const Sidebar = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const [product, setProduct] = useState({});
   const modal = useToggle();
+
+  const handleCreate = (prod) => {
+    setProduct(prod);
+    modal.open();
+  };
 
   return (
     <Wrapper>
@@ -43,10 +49,14 @@ const Sidebar = () => {
         onClick={modal.open}
       >
         <AiOutlinePlusCircle />
-        {isOpen && <Heading secondary>Qo'shish</Heading>}
+        {isOpen && (
+          <Heading secondary onClick={() => handleCreate(product)}>
+            Qo'shish
+          </Heading>
+        )}
       </FlexBox>
       <Modal isOpen={modal.isOpen} onClose={modal.close}>
-        <CreateProducts />
+        <CreateProducts product={product} modal={modal} />
       </Modal>
     </Wrapper>
   );

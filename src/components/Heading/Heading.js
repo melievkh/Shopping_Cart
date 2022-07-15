@@ -16,9 +16,9 @@ const headingSize = {
     }
   `,
   lg: css`
-    font-size: 22px;
+    font-size: 30px;
     ${mobile} {
-      font-size: 18;
+      font-size: 18px;
     }
   `,
 };
