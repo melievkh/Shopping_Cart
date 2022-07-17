@@ -1,6 +1,6 @@
 import styled, { css } from 'styled-components';
-import colors from '../../assets/color/colors';
-import mobile from '../../assets/media/media';
+import colors from '../../styles/color/colors';
+import mobile from '../../styles/media/media';
 
 const textSize = {
   sm: css`

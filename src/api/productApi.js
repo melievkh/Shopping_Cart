@@ -5,7 +5,7 @@ const productApi = {
 
   editProduct: (id, data) => api.put(`/products/${id}`, data),
 
-  creteProduct: (id, data) => api.post(`/products/${id}`, data),
+  creteProduct: (id, data) => api.post(`/products`),
 };
 
 export default productApi;

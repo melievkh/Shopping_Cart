@@ -22,10 +22,10 @@ const Sidebar = () => {
   return (
     <Wrapper>
       <SidebarToggler isOpen={isOpen} onClick={() => setIsOpen(!isOpen)}>
-        <AiOutlineDoubleLeft />
+        <AiOutlineDoubleLeft style={{color: 'grey'}} />
       </SidebarToggler>
       {isOpen ? (
-        <Heading margin="10px" size="md">
+        <Heading secondary margin="10px">
           Admin
         </Heading>
       ) : (

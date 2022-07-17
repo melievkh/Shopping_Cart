@@ -1,5 +1,4 @@
 import React from 'react';
-import Navbar from './containers/Navbar/Navbar';
 import Products from './Pages/Products/Products';
 import { Route, Routes } from 'react-router-dom';
 import Login from './Pages/Login/Login';
@@ -8,7 +7,8 @@ import EditProducts from './Pages/Dashboard/EditProducts/EditProducts';
 import AdminRoutes from './components/PrivateRoute/AdminRoutes';
 import Orders from './Pages/Dashboard/Orders/Orders';
 import { useSelector } from 'react-redux';
-import Footer from './containers/Footer/Footer';
+import Navbar from './components/Layout/Navbar/Navbar';
+import Footer from './components/Layout/Footer/Footer';
 
 function Home() {
   return (
@@ -22,6 +22,7 @@ function Home() {
 
 function App() {
   const userRole = useSelector((state) => state.user.role);
+  
   return (
     <Routes>
       <Route path="/" element={<Home />} />

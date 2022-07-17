@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import colors from '../../../assets/color/colors';
+import colors from '../../../styles/color/colors';
 
 export const Wrapper = styled.div`
   width: 100%;
@@ -22,6 +22,7 @@ export const Table = styled.table`
     font-size: 16px;
     border: 1px solid grey;
     background-color: ${colors.bgColor};
+    color: #f3f3f3;
   }
   td {
     padding: 2px 10px;

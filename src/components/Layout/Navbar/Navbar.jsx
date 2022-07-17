@@ -3,17 +3,17 @@ import {
   Dropdown,
   DropdownContent,
   RegisterButton,
-  SearchInput,
   Wrapper,
 } from './Navbar.style';
 import Basket from '../Basket/Basket';
 import { Link, useNavigate } from 'react-router-dom';
 import { useSelector } from 'react-redux';
-import { FiLogIn, FiSearch, FiUserPlus } from 'react-icons/fi';
+import { FiLogIn, FiUserPlus } from 'react-icons/fi';
 import { TbUserCircle } from 'react-icons/tb';
-import FlexBox from '../../components/Flexbox/FlexBox';
-import Button from '../../components/Button/Button';
-import Heading from '../../components/Heading/Heading';
+import FlexBox from '../../Flexbox/FlexBox';
+import Button from '../../Button/Button';
+import Heading from '../../Heading/Heading';
+import Search from '../Search/Search';
 
 const Navbar = () => {
   let isLoggedIn = useSelector((state) => state.user.isLoggedIn);
@@ -29,17 +29,7 @@ const Navbar = () => {
   return (
     <Wrapper>
       <Basket />
-      <FlexBox wd="fit-content" row>
-        <SearchInput
-          wd="400px"
-          style={{ borderRadius: '8px 0 0 8px' }}
-          type="search"
-          placeholder="qidirish..."
-        />
-        <Button wd="30px" style={{ borderRadius: '0 8px 8px 0' }}>
-          <FiSearch />
-        </Button>
-      </FlexBox>
+      <Search />
       {isLoggedIn ? (
         <FlexBox row gap="10px">
           <Dropdown>
@@ -53,7 +43,7 @@ const Navbar = () => {
               <Button onClick={() => logout()}>chiqish</Button>
             </DropdownContent>
           </Dropdown>
-          <Heading>{username}</Heading>
+          <Heading secondary>{username}</Heading>
         </FlexBox>
       ) : (
         <FlexBox row gap="20px">

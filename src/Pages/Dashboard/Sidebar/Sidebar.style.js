@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
-import colors from '../../../assets/color/colors';
+import colors from '../../../styles/color/colors';
 
 export const Wrapper = styled.div`
   width: fit-content;
@@ -17,7 +17,7 @@ export const Wrapper = styled.div`
   box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
   svg {
     font-size: 26px;
-    color: blue;
+    color: ${colors.avatar};
   }
 `;
 

@@ -1,12 +1,12 @@
 import React, { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
-import orderApi from '../../api/orderApi';
+import orderApi from '../../../api/orderApi';
 import {
   decrementProductByOne,
   getAllProducts,
   incrementProductByOne,
-} from '../../store/product/actions';
+} from '../../../store/product/actions';
 import { FiShoppingCart } from 'react-icons/fi';
 import {
   AmountDisplayer,
@@ -22,9 +22,9 @@ import {
   ProductsList,
   Wrapper,
 } from './Basket.style';
-import Heading from '../../components/Heading/Heading';
-import Button from '../../components/Button/Button';
-import FlexBox from '../../components/Flexbox/FlexBox';
+import FlexBox from '../../Flexbox/FlexBox';
+import Heading from '../../Heading/Heading';
+import Button from '../../Button/Button';
 
 const Basket = () => {
   const dispatch = useDispatch();
@@ -70,7 +70,7 @@ const Basket = () => {
     <Wrapper>
       <Dropdown>
         <BasketWrapper>
-          <FiShoppingCart /> <Logo>Savatcha</Logo>
+          <FiShoppingCart /> <Logo secondary>Savatcha</Logo>
           {amount === 0 ? '' : <AmountDisplayer>{amount}</AmountDisplayer>}
         </BasketWrapper>
         <DropdownContent>

@@ -1,6 +1,6 @@
 import styled from 'styled-components';
-import colors from '../../assets/color/colors';
-import mobile from '../../assets/media/media';
+import colors from '../../styles/color/colors';
+import mobile from '../../styles/media/media';
 
 const Button = styled.button`
   width: ${({ wd }) => wd || '100%'};
@@ -14,7 +14,7 @@ const Button = styled.button`
   justify-content: ${({justifyContent})=> justifyContent || 'center'};
   align-items: center;
   gap: 4px;
-  border-radius: 8px;
+  border-radius: 4px;
   box-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px, rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;
   cursor: pointer;
 

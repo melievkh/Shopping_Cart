@@ -1,8 +1,8 @@
 import styled from 'styled-components';
-import colors from '../../assets/color/colors';
-import mobile from '../../assets/media/media';
-import Button from '../../components/Button/Button';
-import Input from '../../components/Input/Input';
+import colors from '../../../styles/color/colors';
+import mobile from '../../../styles/media/media';
+import Button from '../../Button/Button';
+import Input from '../../Input/Input';
 
 export const Wrapper = styled.div`
   width: 100%;
@@ -11,7 +11,7 @@ export const Wrapper = styled.div`
   display: flex;
   flex-direction: row;
   justify-content: space-around;
-  background-color: #fafafa;
+  background-color: ${colors.bgColor};
   align-items: center;
   gap: 20px;
   box-sizing: border-box;
@@ -41,19 +41,6 @@ export const Dropdown = styled.div`
   flex-direction: row;
   &:hover ${DropdownContent} {
     display: block;
-  }
-`;
-
-export const SearchInput = styled(Input)`
-  border: none;
-  background-color: ${colors.bgColor};
-  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
-  &:focus {
-    border: 1px solid #5ca5ed;
-  }
-  ${mobile} {
-    width: 160px;
-    height: 22px;
   }
 `;
 

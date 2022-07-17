@@ -16,7 +16,7 @@ const CreateProducts = ({ product, modal }) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    productApi.creteProduct(product.id, values).then((res) => {
+    productApi.creteProduct(values).then((res) => {
       dispatch(getAllProducts());
       modal.close();
     });

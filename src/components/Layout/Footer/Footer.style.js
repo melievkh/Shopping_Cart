@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import colors from '../../assets/color/colors';
+import colors from '../../../styles/color/colors';
 
 export const Wrapper = styled.div`
   width: 100%;
@@ -9,7 +9,7 @@ export const Wrapper = styled.div`
   justify-content: center;
   align-items: center;
   gap: 26px;
-  background-color: #001587;
+  background-color: ${colors.bgColor};
   ul {
     list-style-type: none;
     display: flex;
@@ -17,7 +17,7 @@ export const Wrapper = styled.div`
     gap: 40px;
     li {
       font-size: 20px;
-      color: ${colors.bgColor};
+      color: ${colors.avatar};
       cursor: pointer;
     }
   }
