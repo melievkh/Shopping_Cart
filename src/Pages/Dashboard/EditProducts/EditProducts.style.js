@@ -23,6 +23,7 @@ export const Table = styled.table`
     font-weight: 700;
     font-size: 16px;
     border: 1px solid grey;
+    color: #f3f3f3;
     background-color: ${colors.bgColor};
   }
   td {

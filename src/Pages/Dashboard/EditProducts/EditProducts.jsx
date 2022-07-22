@@ -4,10 +4,12 @@ import { getAllProducts } from '../../../store/product/actions';
 import { Table, Wrapper } from './EditProducts.style';
 import { useSelector, useDispatch } from 'react-redux';
 import { BiEditAlt } from 'react-icons/bi';
+import { MdOutlineDeleteOutline } from 'react-icons/md';
 import Modal from '../../../components/Modal/Modal';
 import useToggle from '../../../hooks/useToggle';
 import Edit from '../../../modal/Edit/Edit';
 import { useState } from 'react';
+import Button from '../../../components/Button/Button';
 
 const Products = () => {
   const dispatch = useDispatch();
@@ -24,6 +26,8 @@ const Products = () => {
     modal.open();
   };
 
+  const handleRemove = (product) => {};
+
   return (
     <Wrapper gap="8px">
       <Heading margin="30px">Mahsulotlar ro'yxati</Heading>
@@ -34,7 +38,7 @@ const Products = () => {
             <th>Nomi</th>
             <th>Narxi</th>
             <th>Ma'lumotlar</th>
-            <th></th>
+            <th>T/O'</th>
           </tr>
         </thead>
         <tbody>
@@ -44,10 +48,20 @@ const Products = () => {
               <td>{product.name}</td>
               <td>{product.price}</td>
               <td>{product.description}</td>
-              <td>
-                <button onClick={() => handleEdit(product)}>
+              <td
+                style={{
+                  display: 'flex',
+                  flexDirection: 'row',
+                  justifyContent: 'center',
+                  gap: '16px',
+                }}
+              >
+                <Button wd="40px" onClick={() => handleEdit(product)}>
                   <BiEditAlt />
-                </button>
+                </Button>
+                <Button wd="40px" onClick={() => handleRemove(product.id)}>
+                  <MdOutlineDeleteOutline />
+                </Button>
               </td>
             </tr>
           ))}

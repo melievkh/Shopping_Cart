@@ -1,4 +1,5 @@
 import authApi from '../../api/authApi';
+import swal from 'sweetalert'
 
 export const login = (data) => (dispatch) => {
   authApi
@@ -8,5 +9,5 @@ export const login = (data) => (dispatch) => {
       localStorage.setItem('user', JSON.stringify(res.data.user));
       localStorage.setItem('token', res.data.user.token);
     })
-    .catch((err) => console.log(err.response.data.message));
+    .catch((err) => swal('', err.response.data.message, 'error'));
 };

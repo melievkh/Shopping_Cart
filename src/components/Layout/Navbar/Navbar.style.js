@@ -2,7 +2,6 @@ import styled from 'styled-components';
 import colors from '../../../styles/color/colors';
 import mobile from '../../../styles/media/media';
 import Button from '../../Button/Button';
-import Input from '../../Input/Input';
 
 export const Wrapper = styled.div`
   width: 100%;
@@ -17,7 +16,9 @@ export const Wrapper = styled.div`
   box-sizing: border-box;
   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
   svg {
-    color: ${colors.avatar};
+    color: white;
+    font-size: 30px;
+    cursor: pointer;
   }
   ${mobile} {
     width: auto;

@@ -1,11 +1,9 @@
-import api from './api';
+import api from "./api";
 
 const productApi = {
-  getAllProducts: () => api.get('/products'),
+  createProduct: (data) => api.post("/products", data),
 
-  editProduct: (id, data) => api.put(`/products/${id}`, data),
-
-  creteProduct: (id, data) => api.post(`/products`),
+  getAllProducts: () => api.get("/products"),
 };
 
 export default productApi;

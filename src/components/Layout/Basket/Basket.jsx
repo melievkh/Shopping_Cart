@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import swal from 'sweetalert';
 import { useSelector, useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import orderApi from '../../../api/orderApi';
@@ -25,6 +26,7 @@ import {
 import FlexBox from '../../Flexbox/FlexBox';
 import Heading from '../../Heading/Heading';
 import Button from '../../Button/Button';
+import colors from '../../../styles/color/colors';
 
 const Basket = () => {
   const dispatch = useDispatch();
@@ -55,7 +57,11 @@ const Basket = () => {
   const createOrder = (e) => {
     e.preventDefault();
     if (!isLoggedIn) {
-      alert('Buyurtma berish uchun avval saytga kirishingiz kerak!');
+      swal(
+        'oops!',
+        'Buyurtma berish uchun avval saytga kirishingiz kerak!',
+        'error'
+      );
       navigate('/login');
     } else {
       orderApi
@@ -64,13 +70,15 @@ const Basket = () => {
         .catch((err) => console.log(err.response.data));
       dispatch(getAllProducts());
     }
+    swal('', 'Buyurtma muvafaqqiyatli yaratildi!', 'success');
   };
 
   return (
     <Wrapper>
       <Dropdown>
         <BasketWrapper>
-          <FiShoppingCart /> <Logo secondary>Savatcha</Logo>
+          <FiShoppingCart style={{ color: colors.avatar }} />
+          <Logo secondary>Savatcha</Logo>
           {amount === 0 ? '' : <AmountDisplayer>{amount}</AmountDisplayer>}
         </BasketWrapper>
         <DropdownContent>

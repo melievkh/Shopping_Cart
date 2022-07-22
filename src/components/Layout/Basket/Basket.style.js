@@ -64,6 +64,7 @@ export const Cards = styled.div`
 export const CardMedia = styled.img`
   width: 60px;
   height: 60px;
+  border-radius: 8px;
 `;
 export const OrderButton = styled.div`
   height: 20%;

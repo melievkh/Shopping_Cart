@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import swal from 'sweetalert';
 import Button from '../../components/Button/Button';
 import Heading from '../../components/Heading/Heading';
 import { Form, Wrapper } from './Register.style';
@@ -29,16 +30,16 @@ const Register = () => {
     authApi
       .register(details)
       .then((res) => {
-        alert(res.data.message);
+        swal('', res.data.message, 'success');
         navigate('/login');
       })
-      .catch((err) => alert(err.response.data.message));
+      .catch((err) => swal('error', err.response.data.message, 'error'));
   };
 
   return (
     <Wrapper>
       <Form onSubmit={handleSubmit}>
-        <Heading secondary>
+        <Heading>
           <FiUserPlus /> Ro'yhatdan o'tish
         </Heading>
         <Input

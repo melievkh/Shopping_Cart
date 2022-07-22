@@ -8,6 +8,7 @@ import { Form } from './Edit.style';
 import { useDispatch } from 'react-redux';
 import { getAllProducts } from '../../store/product/actions';
 import productApi from '../../api/productApi';
+import swal from 'sweetalert';
 
 const Edit = ({ product, modal }) => {
   const [values, setValues] = useState({});
@@ -19,6 +20,7 @@ const Edit = ({ product, modal }) => {
       dispatch(getAllProducts());
       modal.close();
     });
+    swal('', 'Tahrirlash muvafaqqiyatli bajarildi!', 'success');
   };
 
   const handleChange = (e) => {

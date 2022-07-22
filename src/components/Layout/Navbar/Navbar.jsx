@@ -1,4 +1,5 @@
 import React from 'react';
+import swal from 'sweetalert';
 import {
   Dropdown,
   DropdownContent,
@@ -24,6 +25,7 @@ const Navbar = () => {
     localStorage.removeItem('user');
     localStorage.removeItem('token');
     navigate('/login');
+    swal('Saytdan chiqish muvafaqqiyatli bajarildi!');
   };
 
   return (
@@ -33,12 +35,7 @@ const Navbar = () => {
       {isLoggedIn ? (
         <FlexBox row gap="10px">
           <Dropdown>
-            <TbUserCircle
-              style={{
-                fontSize: '30px',
-                cursor: 'pointer',
-              }}
-            />
+            <TbUserCircle />
             <DropdownContent>
               <Button onClick={() => logout()}>chiqish</Button>
             </DropdownContent>

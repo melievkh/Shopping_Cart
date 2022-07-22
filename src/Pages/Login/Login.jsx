@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import swal from 'sweetalert';
 import { useDispatch } from 'react-redux';
 import { Link, useNavigate } from 'react-router-dom';
 import { AiOutlineArrowRight } from 'react-icons/ai';
@@ -25,14 +26,15 @@ const Login = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    dispatch(login(details));
-    navigate('/');
+    dispatch(login(details))
+        swal('', 'Tizimga kirish muvafaqqiyatli!', 'success');
+        navigate('/');
   };
 
   return (
     <Wrapper>
       <Form onSubmit={handleSubmit}>
-        <Heading secondary>
+        <Heading>
           <FaUserAlt /> Saytga kirish
         </Heading>
         <Input
